@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Contact, Banner, SkillSection, AboutSection, ServiceSection
+from django import forms
+from .models import Contact, Banner, SkillSection, AboutSection, ServiceSection, PortfolioSection
 # Register your models here.
 admin.site.register(Banner)
 admin.site.register(SkillSection)
@@ -11,6 +12,26 @@ class AboutSectionAdmin(admin.ModelAdmin):
 class ServiceAdmin(admin.ModelAdmin):
     list_display = ['service_name']
 
+
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
     list_display = ['name', 'email', 'phone']
+
+# This is for placeholder in admin input
+class PortfolioSectionForm(forms.ModelForm):
+    class Meta:
+        model = PortfolioSection
+        fields = ['title','filter_keyword', 'project_url', 'project_image']
+        widgets = {
+            'filter_keyword': forms.TextInput(attrs={
+                'placeholder': 'frontend, backend, wordpress, etc.'
+            }),
+            'project_url': forms.URLInput(attrs={
+                'placeholder': 'https://myproject.com'
+            }),
+        }
+
+class PortfolioSectionAdmin(admin.ModelAdmin):
+    form = PortfolioSectionForm
+
+admin.site.register(PortfolioSection, PortfolioSectionAdmin)

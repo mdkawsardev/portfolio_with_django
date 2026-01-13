@@ -34,6 +34,12 @@ class ServiceSection(models.Model):
     service_name = models.CharField(max_length=255)
     service_description = models.TextField()
 
+class PortfolioSection(models.Model):
+    title = models.CharField(max_length=100)
+    filter_keyword = models.CharField(max_length=100)
+    project_url = models.CharField(max_length=255)
+    project_image = models.ImageField(upload_to='media', blank=True)
+
 class Contact(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField(max_length=50)
