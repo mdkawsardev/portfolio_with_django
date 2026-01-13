@@ -1,0 +1,669 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="MD KAWSAR DEV">
+    <meta name="description"
+        content="mdkawsardev is a professional website developer. His name is Md Kawsar, and he lives in Dhaka, Bangladesh. He has a great reputation with his development career. He has done a lot of projects with potential clients. If you need a professional website for your business, just contact him. All information is in his personal portfolio.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mdkawsardev.com">
+    <meta property="og:title" content="MD KAWSAR DEV">
+    <meta property="og:description"
+        content="mdkawsardev is a professional website developer. His name is Md Kawsar, and he lives in Dhaka, Bangladesh. He has a great reputation with his development career. He has done a lot of projects with potential clients. If you need a professional website for your business, just contact him. All information is in his personal portfolio.">
+    <meta property="og:image" content="">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mdkawsardev.com">
+    <meta property="twitter:title" content="MD KAWSAR DEV">
+    <meta property="twitter:description"
+        content="mdkawsardev is a professional website developer. His name is Md Kawsar, and he lives in Dhaka, Bangladesh. He has a great reputation with his development career. He has done a lot of projects with potential clients. If you need a professional website for your business, just contact him. All information is in his personal portfolio.">
+    <meta property="twitter:image" content="">
+    <meta name="keywords"
+        content="web developer, web developer in bd, web developer in Dhaka, web developer in Bangladesh, website development, website designer, developer portfolio, web developer portfolio, md kawsar, mdkawsardev, kawsar, imran kawsar, web development service, web developer portfolio, HTML Developer, HTML and CSS Developer, Front-end developer, web designer">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="2 days">
+    <meta name="author" content="mdkawsardev">
+    <title>MD KAWSAR DEV</title>
+    <link rel="icon" href="{% static 'media/logo/logo.png'%}" type="image/x-icon">
+    <!-- Bootstrap files linking -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Bootstrap files linking -->
+    <!-- Custom CSS files linking -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <!-- Custom CSS files linking -->
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="loader">
+        <div class="mySpinner invisible">
+        </div>
+        <div class="spiContainer ">
+            <div class="spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <div class="toTop d-none">
+        <button type="button" class="topBtn"><span class="arr"><i class="fa-solid fa-chevron-up"></i></span></button>
+    </div>
+    <div class="loginContainer d-none">
+        <div class="form login_form d-none">
+            <div class="close"><i class="fa-solid fa-xmark"></i></div>
+            <h2>Login</h2>
+            <form action="#">
+                <label for="user">Username:</label>
+                <input type="text" id="user" required>
+                <label for="pass">Password:</label>
+                <div class="loginInput forEye">
+                    <input type="password" id="pass" required>
+                    <div class="loginEyes eyes">
+                        <span class="openEye1 d-none"><i class="fa-solid fa-eye"></i></span>
+                        <span class="closeEye1"><i class="fa-solid fa-eye-slash"></i></span>
+                    </div>
+                </div>
+                <div class="contactBtn">
+                    <button type="submit" class="actionBtn">Login</button>
+                </div>
+                <a href="dashboard/navbar.html">Dashboard</a>
+                <div class="forgotLink">
+                    <p class="mb-0 mt-1 text-decoration-underline">Forgot Password?</p>
+                </div>
+            </form>
+        </div>
+        <div class="form login_form recoverForm d-none">
+            <div class="close reClose"><i class="fa-solid fa-xmark"></i></div>
+            <h2>Recover Password</h2>
+            <form action="#">
+                <label for="pass1">Old Password:</label>
+                <input type="password" id="pass1" required>
+                <label for="pass2">New Password:</label>
+                <div class="newInput forEye">
+                    <input type="password" id="pass2" required>
+                    <div class="newEyes eyes">
+                        <span class="openEye2 d-none"><i class="fa-solid fa-eye"></i></span>
+                        <span class="closeEye2"><i class="fa-solid fa-eye-slash"></i></span>
+                    </div>
+                </div>
+
+                <label for="pass3">Confirm Password:</label>
+                <div class="conInput forEye">
+                    <input type="password" id="pass3" required>
+                    <div class="conEyes eyes">
+                        <span class="openEye3 d-none"><i class="fa-solid fa-eye"></i></span>
+                        <span class="closeEye3"><i class="fa-solid fa-eye-slash"></i></span>
+                    </div>
+                </div>
+
+                <div class="contactBtn">
+                    <button type="submit" class="actionBtn">Save</button>
+                </div>
+                <div class="loginLink">
+                    <p class="mb-0 mt-1 text-decoration-underline">Login</p>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Preloader -->
+    <header class="header">
+        
+            
+            <div class="navbar">
+                <div class="logo"><a href="index.html"><img src="{% static 'media/logo/logo.png'%}" class="w-100 h-100"
+                            alt="logo"></a></div>
+                <div class="menubar hide">
+                    <ul class="menus hide">
+                        <li><a href="#" id="top" class="link linking active">Home</a></li>
+                        <li><a href="#about" class="link linking">About</a></li>
+                        <li><a href="#skill" class="link linking">Skills</a></li>
+                        <li><a href="#service" class="link linking">Service</a></li>
+                        <li><a href="#portfolio" class="link linking">Portfolio</a></li>
+                        <li><a href="#review" class="link linking">Review</a></li>
+                        <li><a href="#contact" class="link linking">Contact</a></li>
+                        <div class="login"><span><i class="fa-solid fa-user"></i></span></div>
+                    </ul>
+                </div>
+                <button type="button" class="toggle">
+                    <div class="open">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+    <section class="banner" section>
+        <div class="circle_container">
+            <div class="cirle">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+
+            </div>
+        </div>
+        <div class="b_img" style="background-image: url({% static 'media/image/ProfilePicture-Photoroom.png' %});"></div>
+        <div class="typWriter">
+            <div id="typwriter"></div>
+        </div>
+        <div class="mini-stars">
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+            <span class="star"></span>
+        </div>
+        <div class="title">
+            <h1 class="heading">Hello! This is <span>Kawsar</span> </h1>
+            <h2 class="heading">I'm a <span id="typewriter-text"></span></h2>
+        </div>
+    </section>
+    <section class="about section common_section" id="about">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="common_title">
+                        <h2 class="mb-lg-0">About Me</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row about_text">
+                <div class="col-lg-4 d-block d-lg-none p-0">
+                    <div class="right">
+                        <div class="profile">
+                            <img class="w-100 h-100" src="{%static 'media/image/profile.png'%}" alt="personal profile">
+                        </div>
+                        <div class="personal_details">
+                            <pre>
+                                Name: MD. Kawsar 
+                                Age: 22Yr 
+                                professionalism: Web Developer 
+                                Residence: In Bangladesh 
+                                Address: Dhaka, Bangladesh 
+                                Email: admin@mdkawsardev.com
+                                Phone: +8801880275896, +8801845476197
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="left">
+                        <p class="mb-lg-0">Hello There<span>!</span></p>
+                        <p class="mb-lg-0">
+                            This is MD Kawsar. I'm a professional Full-Stack Web developer with over 2 years of
+                            experience. I'm from Dhaka, Bangladesh. I code and create web elements for amazing people
+                            around the world. I like working with new people. New people, new experience. My
+                            technologies are HTML, CSS, Bootstrap, Tailwind CSS, JavaScript, React.js, Python, Django, MySQL, and
+                            the CMS is WordPress.
+                        </p>
+                        <div class="buttons">
+                            <a href="content/documents/updatedCvofKawsar.pdf" target="_blank" class="actionBtn">Download
+                                CV</a>
+                            <a href="content/documents/certificateOfWebDev.pdf" target="_blank"
+                                class="actionBtn">Certificate</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block p-0">
+                    <div class="right">
+                        <div class="profile">
+                            <img class="w-100 h-100" src="{%static 'media/image/profile.png'%}" alt="personal profile">
+                        </div>
+                        <div class="personal_details">
+                            <pre>
+                                Name: MD. Kawsar 
+                                Age: 22Yr 
+                                professionalism: Web Developer 
+                                Residence: In Bangladesh 
+                                Address: Dhaka, Bangladesh 
+                                Email: admin@mdkawsardev.com
+                                Phone: +8801880275896, +8801845476197
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row counter_points">
+                <div class="col-lg-4">
+                    <div class="point text-center counter1">
+                        <h3><span>130</span></h3>
+                        <span>Coffee</span>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="point text-center counter2">
+                        <h3><span>80</span></h3>
+                        <span>Clients</span>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="point text-center counter3">
+                        <h3><span>2</span>+</h3>
+                        <span>Years of Experience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="mySkills section common_section" id="skill">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="common_title">
+                        <h2 class="mb-lg-0">My Skills</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="skills" id="skills">
+                        <div class="skill">
+                            <span class="tag">HTML & CSS</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" data-percent="95">
+                                    <div class="runningAnimation"></div>
+                                    <span class="skill-percent">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span class="tag">Bootstrap</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" data-percent="95">
+                                    <div class="runningAnimation"></div>
+                                    <span class="skill-percent">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span class="tag">Tailwind CSS</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" data-percent="80">
+                                    <div class="runningAnimation"></div>
+                                    <span class="skill-percent">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span class="tag">JavaScript</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" data-percent="75">
+                                    <div class="runningAnimation"></div>
+                                    <span class="skill-percent">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span class="tag">React.Js</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" data-percent="70">
+                                    <div class="runningAnimation"></div>
+                                    <span class="skill-percent">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span class="tag">Python & Django</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" data-percent="85">
+                                    <div class="runningAnimation"></div>
+                                    <span class="skill-percent">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span class="tag">MySQL</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" data-percent="90">
+                                    <div class="runningAnimation"></div>
+                                    <span class="skill-percent">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span class="tag">Git & GitHub</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" data-percent="90">
+                                    <div class="runningAnimation"></div>
+                                    <span class="skill-percent">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span class="tag">WordPress</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" data-percent="80">
+                                    <div class="runningAnimation"></div>
+                                    <span class="skill-percent">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <span class="tag">Communication</span>
+                            <div class="skill-bar">
+                                <div class="skill-level" data-percent="99">
+                                    <div class="runningAnimation"></div>
+                                    <span class="skill-percent">0%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Repeat for other skills -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="service section common_section" id="service">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="common_title">
+                        <h2 class="mb-lg-0">My Services</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-4 col-sm-6">
+                    <div class="single_service">
+                        <div class="details">
+                            <span class="icon"><i class="fa-solid fa-laptop-code"></i></span>
+                            <h3>Web Design</h3>
+                            <p>I'm a passionate web designer, and I design pixel-perfect, fully responsive websites
+                                using the latest technologies such as HTML5, CSS3, Bootstrap5, Tailwind CSS4,
+                                JavaScript6, and React.js. My first priority is making my clients happy.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-6">
+                    <div class="single_service">
+                        <div class="details">
+                            <span class="icon"><i class="fa-solid fa-code"></i></span>
+                            <h3>Web Development</h3>
+                            <p>I handle the backend of a website via the most usable programming language, Python, Django, and the
+                                database is MySQL. I always build a seamless website for users, which makes my clients
+                                more confident to work with me.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-6">
+                    <div class="single_service">
+                        <div class="details">
+                            <span class="icon"><i class="fa-solid fa-hammer"></i></span>
+                            <h3>Web Maintenance</h3>
+                            <p>Website maintenance is more important than making a new website, but it depends on users'
+                                reactions; however, it's a great action to be updated with the latest technologies,
+                                which attracts users.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-6">
+                    <div class="single_service">
+                        <div class="details">
+                            <span class="icon"><i class="fa-solid fa-server"></i></span>
+                            <h3>API Integration</h3>
+                            <p>I provide a perfect clone of a website, but if clients want some changes, it's also
+                                possible. I focus on my clients' demands forever.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-6">
+                    <div class="single_service">
+                        <div class="details">
+                            <span class="icon"><i class="fa-brands fa-wordpress"></i></span>
+                            <h3>WordPress</h3>
+                            <p>WordPress is now the most popular CMS for making a website, and an open-source platform.
+                                It uses PHP and MySQL in the backend, which encourages me to work with WordPress.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-6">
+                    <div class="single_service">
+                        <div class="details">
+                            <span class="icon"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                            <h3>Theme Development</h3>
+                            <p>A WordPress theme is the most important part of a website. Because a light-weight theme
+                                can make more faster environment for users. and keeps going reputation of the website.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="portfolio section common_section" id="portfolio">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="common_title">
+                        <h2 class="mb-lg-0">My Portfolio</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="mixItUp">
+                        <div class="itemBtn">
+                            <ul>
+                                <li class="list active" data-filter="all">All</li>
+                                <li class="list" data-filter="frontend">Front-End</li>
+                                <li class="list" data-filter="backend">Back-End</li>
+                                <li class="list" data-filter="wordpress">WordPress</li>
+                                <li class="list" data-filter="react">React</li>
+                            </ul>
+                        </div>
+                        <div class="itemBox">
+                            <div class="items" data-item="frontend"><a href="https://mdkawsardev.github.io/lawliet/"
+                                    target="_blank"><img class="w-100 h-100" src="{%static 'media/image/project1.png'%}"
+                                        alt=""></a></div>
+                            <div class="items" data-item="frontend"><a href="#" target="_blank"><img class="w-100 h-100"
+                                        src="{%static 'media/image/project5.png'%}" alt=""></a></div>
+                            <div class="items" data-item="frontend"><a
+                                    href="https://mdkawsardev.github.io/truck-service/" target="_blank"><img
+                                        class="w-100 h-100" src="{%static 'media/image/project4.png'%}" alt=""></a></div>
+                            <div class="items" data-item="frontend"><a href="https://mdkawsardev.github.io/theBox/"
+                                    target="_blank"><img class="w-100 h-100" src="{%static 'media/image/project2.png'%}"
+                                        alt=""></a></div>
+                            <div class="items" data-item="frontend"><a href="https://mdkawsardev.github.io/solana-dev/"
+                                    target="_blank"><img class="w-100 h-100" src="{%static 'media/image/project3.png'%}"
+                                        alt=""></a></div>
+                            <div class="items" data-item="frontend"><a href="https://mdkawsardev.github.io/webzone/"
+                                    target="_blank"><img class="w-100 h-100" src="{%static 'media/image/project6.png'%}"
+                                        alt=""></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="testimonial section common_section" id="review">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="common_title">
+                        <h2 class="mb-lg-0">Happy Clients</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="swiper">
+                        <ul class="list ps-0 m-0 swiper-wrapper">
+                            <li class="item swiper-slide">
+                                <span class="quate"><i class="fa-solid fa-quote-left"></i></span>
+                                <div class="client">
+                                    <div class="client_pic"><img src="{%static 'media/image/client1.jpg'%}" class="w-100 h-100"
+                                            alt=""></div>
+                                    <div class="c_name mb-xl-3 text-center mt-xl-2">
+                                        <p class="mb-xl-0 text-uppercase">MD Al-Amin</p>
+                                        <p class="mb-xl-0">CEO of Webzone Internet</p>
+                                    </div>
+                                </div>
+                                <p>"As a web developer, Kawsar is an expert in front-end and back-end technologies.
+                                    Additionally, his dedication to projects is outstanding. Overall, Kawsar is a highly
+                                    skilled and reliable web developer who consistently delivers high-quality projects."
+                                </p>
+                                <span class="heart"><i class="fa-solid fa-heart"></i></span>
+                            </li>
+                            <li class="item swiper-slide">
+                                <span class="quate"><i class="fa-solid fa-quote-left"></i></span>
+                                <div class="client">
+                                    <div class="client_pic"><img src="{%static 'media/image/client2.jpg'%}" class="w-100 h-100"
+                                            alt=""></div>
+                                    <div class="c_name mb-xl-3 text-center mt-xl-2">
+                                        <p class="mb-xl-0 text-uppercase">MD Shuvo</p>
+                                        <p class="mb-xl-0">MD of LifeOnline</p>
+                                    </div>
+                                </div>
+                                <p>I worked with Kawsar. His working quality is amazing, he won my trust with this work
+                                    delivery. He made my dream project as I wanted, and I will always prefer him as a
+                                    great developer.
+                                </p>
+                                <span class="heart"><i class="fa-solid fa-heart"></i></span>
+                            </li>
+                            <li class="item swiper-slide">
+                                <span class="quate"><i class="fa-solid fa-quote-left"></i></span>
+                                <div class="client">
+                                    <div class="client_pic"><img src="{%static 'media/image/client3.jpg'%}" class="w-100 h-100"
+                                            alt=""></div>
+                                    <div class="c_name mb-xl-3 text-center mt-xl-2">
+                                        <p class="mb-xl-0 text-uppercase">Minhaz Foysal</p>
+                                        <p class="mb-xl-0">Academic Head of LearnSS</p>
+                                    </div>
+                                </div>
+                                <p>I have gained new ideas by working with Kawsar. He is not only a developer but also a
+                                    good designer and excellent communicator. I totally surprised by his amazing working
+                                    skills.
+                                </p>
+                                <span class="heart"><i class="fa-solid fa-heart"></i></span>
+                            </li>
+                            <li class="item swiper-slide">
+                                <span class="quate"><i class="fa-solid fa-quote-left"></i></span>
+                                <div class="client">
+                                    <div class="client_pic"><img src="{%static 'media/image/client4.jpg'%}" class="w-100 h-100"
+                                            alt=""></div>
+                                    <div class="c_name mb-xl-3 text-center mt-xl-2">
+                                        <p class="mb-xl-0 text-uppercase">Ali Muzahid</p>
+                                        <p class="mb-xl-0">Co-founder of HEX CODE IT</p>
+                                    </div>
+                                </div>
+                                <p>Kawsar is the best developer ever. He maintained my trust with his work and timely
+                                    delivery. I appreciate his outstanding communication skills. Finally, I would like
+                                    to say that he is an excellent designer and developer.
+                                </p>
+                                <span class="heart"><i class="fa-solid fa-heart"></i></span>
+                            </li>
+
+                        </ul>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact section common_section" id="contact">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="common_title">
+                        <h2 class="mb-lg-0">Contact Me</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row contact_parent overflow-hidden">
+                <div class="col-lg-5">
+                    <div class="form">
+                        <h2>Hey! Lemme know you</h2>
+                        <form action="#">
+                            <label for="Name">Name:</label>
+                            <input type="text" id="Name" required>
+                            <label for="Email">Email:</label>
+                            <input type="email" id="Email" required>
+                            <label for="Phn">Phone:</label>
+                            <input type="number" id="Phn" required>
+                            <div class="contactBtn">
+                                <button type="submit" class="actionBtn">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-7 d-none d-lg-flex px-0">
+                    <div class="contact_img h-100">
+                        <img src="{%static 'media/image/contact.jpg'%}" class="w-100 h-100" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer common_section">
+        <div class="f_details">
+            <div class="container">
+                <div class="row firtsRow">
+                    <div class="col-lg-6">
+                        <div class="f_left">
+                            <h2>Inform Me</h2>
+                            <span>Phone: +8801880275896</span>
+                            <span>Phone: +8801845476197</span>
+                            <span>Email: admin@mdkawsardev.com</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="f_right">
+                            <h2>Social Media</h2>
+                            <div class="socials">
+                                <a href="https://facebook.com/mdkawsardevv" target="_blank"><span><i
+                                            class="fa-brands fa-facebook"></i></span></a>
+                                <a href="https://github.com/mdkawsardev" target="_blank"><span><i
+                                            class="fa-brands fa-github"></i></span></a>
+                                <a href="https://linkedin.com/in/mdkawsardevv" target="_blank"><span><i class="fa-brands fa-linkedin"></i></span></a>
+                                <a href="https://instagram.com/mdkawsardevv" target="_blank"><span><i
+                                            class="fa-brands fa-instagram"></i></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="copyRight">
+                            <p>&copy;2025:All Rights Reserved by mdkawsardev</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <!-- Bootstrap JS files linking -->
+    <script src="{% static "fontawesome/fontawesome.js"%}"></script>
+    <script src="{% static 'js/portfolio.js'%}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="{% static "js/script.js" %}"></script>
+</body>
+
+</html>
