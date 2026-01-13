@@ -28,6 +28,12 @@ class SkillSection(models.Model):
     range_text = models.CharField(max_length=100)
     range_percentage = models.CharField(max_length=10)
 
+class ServiceSection(models.Model):
+    title = models.CharField(max_length=100)
+    service_icon = models.CharField(max_length=255)
+    service_name = models.CharField(max_length=255)
+    service_description = models.TextField()
+
 class Contact(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField(max_length=50)
