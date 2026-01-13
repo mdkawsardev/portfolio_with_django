@@ -16,5 +16,5 @@ def contact(request):
             email = email,
             phone = phone
         )
-        messages.success(request, "Thanks! Your info has been sent.")
+        messages.success(request, "Thanks! Your information has been sent.")
     return render(request, 'index.html')
