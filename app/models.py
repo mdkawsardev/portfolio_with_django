@@ -40,6 +40,14 @@ class PortfolioSection(models.Model):
     project_url = models.CharField(max_length=255)
     project_image = models.ImageField(upload_to='media', blank=True)
 
+class ClientSection(models.Model):
+    title = models.CharField(max_length=100)
+    client_name = models.CharField(max_length=100)
+    client_profession = models.CharField(max_length=100)
+    client_comments = models.TextField()
+    client_photo = models.ImageField(blank=True, upload_to='media', default='default.png')
+
+
 class Contact(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField(max_length=50)
