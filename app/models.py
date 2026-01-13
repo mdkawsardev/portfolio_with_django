@@ -5,6 +5,7 @@ class Banner(models.Model):
     image = models.ImageField(default='example.png', blank=True, upload_to='media')
     sideTitle = models.CharField(max_length=255)
     mainTitle = models.CharField(max_length=255)
+
 class AboutSection(models.Model):
     title = models.CharField(max_length=50)
     description = models.TextField()
@@ -22,7 +23,7 @@ class AboutSection(models.Model):
     point3_text = models.CharField(max_length=100)
     def __str__(self):
         return self.title
-    
+
 class SkillSection(models.Model):
     title = models.CharField(max_length=50)
     range_text = models.CharField(max_length=100)
@@ -52,5 +53,3 @@ class Contact(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField(max_length=50)
     phone = models.CharField(max_length=20)
-    def __str__(self):
-        return self.name
