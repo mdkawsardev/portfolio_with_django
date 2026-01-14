@@ -335,71 +335,19 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xl-4 col-sm-6">
-                    <div class="single_service">
-                        <div class="details">
-                            <span class="icon"><i class="fa-solid fa-laptop-code"></i></span>
-                            <h3>Web Design</h3>
-                            <p>I'm a passionate web designer, and I design pixel-perfect, fully responsive websites
-                                using the latest technologies such as HTML5, CSS3, Bootstrap5, Tailwind CSS4,
-                                JavaScript6, and React.js. My first priority is making my clients happy.</p>
+                {% if Services %}
+                    {% for Service in Services %}
+                        <div class="col-xl-4 col-sm-6">
+                            <div class="single_service">
+                                <div class="details">
+                                    <span class="icon"><i class="{{Service.service_icon}}"></i></span>
+                                    <h3>{{Service.service_name}}</h3>
+                                    <p>{{Service.service_description}}</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-sm-6">
-                    <div class="single_service">
-                        <div class="details">
-                            <span class="icon"><i class="fa-solid fa-code"></i></span>
-                            <h3>Web Development</h3>
-                            <p>I handle the backend of a website via the most usable programming language, Python,
-                                Django, and the
-                                database is MySQL. I always build a seamless website for users, which makes my clients
-                                more confident to work with me.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-sm-6">
-                    <div class="single_service">
-                        <div class="details">
-                            <span class="icon"><i class="fa-solid fa-hammer"></i></span>
-                            <h3>Web Maintenance</h3>
-                            <p>Website maintenance is more important than making a new website, but it depends on users'
-                                reactions; however, it's a great action to be updated with the latest technologies,
-                                which attracts users.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-sm-6">
-                    <div class="single_service">
-                        <div class="details">
-                            <span class="icon"><i class="fa-solid fa-server"></i></span>
-                            <h3>API Integration</h3>
-                            <p>I provide a perfect clone of a website, but if clients want some changes, it's also
-                                possible. I focus on my clients' demands forever.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-sm-6">
-                    <div class="single_service">
-                        <div class="details">
-                            <span class="icon"><i class="fa-brands fa-wordpress"></i></span>
-                            <h3>WordPress</h3>
-                            <p>WordPress is now the most popular CMS for making a website, and an open-source platform.
-                                It uses PHP and MySQL in the backend, which encourages me to work with WordPress.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-sm-6">
-                    <div class="single_service">
-                        <div class="details">
-                            <span class="icon"><i class="fa-solid fa-screwdriver-wrench"></i></span>
-                            <h3>Theme Development</h3>
-                            <p>A WordPress theme is the most important part of a website. Because a light-weight theme
-                                can make more faster environment for users. and keeps going reputation of the website.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
     </section>
