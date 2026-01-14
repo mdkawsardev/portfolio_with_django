@@ -53,6 +53,11 @@ class Contact(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField(max_length=50)
     phone = models.CharField(max_length=20)
+
+class ContactNumber(models.Model):
+    number = models.CharField(max_length=50)
+    email = models.EmailField(max_length=50)
+
 class SocialMedia(models.Model):
     icon = models.CharField(max_length=255)
     link = models.CharField(max_length=255)
