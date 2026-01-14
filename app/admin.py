@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django import forms
-from .models import Contact, Banner, SkillSection, AboutSection, ServiceSection, PortfolioSection, ClientSection, SocialMedia, ContactNumber, ContactEmail
+from .models import Contact, Banner, SkillSection, AboutSection, ServiceSection, PortfolioSection, ClientSection, SocialMedia, ContactNumber, ContactEmail, FooterText, SkillTitle, ServiceTitle
 # Register your models here.
 admin.site.register(Banner)
 admin.site.register(SkillSection)
@@ -8,6 +8,9 @@ admin.site.register(ClientSection)
 admin.site.register(SocialMedia)
 admin.site.register(ContactNumber)
 admin.site.register(ContactEmail)
+admin.site.register(FooterText)
+admin.site.register(SkillTitle)
+admin.site.register(ServiceTitle)
 @admin.register(AboutSection)
 class AboutSectionAdmin(admin.ModelAdmin):
     list_display = ['title']

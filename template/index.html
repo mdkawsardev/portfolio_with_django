@@ -114,44 +114,44 @@
             </form>
         </div>
     </div>
-    
+
     <!-- Preloader -->
     <header class="header">
-        
-            
-            <div class="navbar">
-                <div class="logo"><a href="index.html"><img src="{% static 'media/logo/logo.png'%}" class="w-100 h-100"
-                            alt="logo"></a></div>
-                <div class="menubar hide">
-                    <ul class="menus hide">
-                        <li><a href="#" id="top" class="link linking active">Home</a></li>
-                        <li><a href="#about" class="link linking">About</a></li>
-                        <li><a href="#skill" class="link linking">Skills</a></li>
-                        <li><a href="#service" class="link linking">Service</a></li>
-                        <li><a href="#portfolio" class="link linking">Portfolio</a></li>
-                        <li><a href="#review" class="link linking">Review</a></li>
-                        <li><a href="#contact" class="link linking">Contact</a></li>
-                        <div class="login"><span><i class="fa-solid fa-user"></i></span></div>
-                    </ul>
-                </div>
-                <button type="button" class="toggle">
-                    <div class="open">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </div>
-                </button>
+
+
+        <div class="navbar">
+            <div class="logo"><a href="index.html"><img src="{% static 'media/logo/logo.png'%}" class="w-100 h-100"
+                        alt="logo"></a></div>
+            <div class="menubar hide">
+                <ul class="menus hide">
+                    <li><a href="#" id="top" class="link linking active">Home</a></li>
+                    <li><a href="#about" class="link linking">About</a></li>
+                    <li><a href="#skill" class="link linking">Skills</a></li>
+                    <li><a href="#service" class="link linking">Service</a></li>
+                    <li><a href="#portfolio" class="link linking">Portfolio</a></li>
+                    <li><a href="#review" class="link linking">Review</a></li>
+                    <li><a href="#contact" class="link linking">Contact</a></li>
+                    <div class="login"><span><i class="fa-solid fa-user"></i></span></div>
+                </ul>
             </div>
+            <button type="button" class="toggle">
+                <div class="open">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </button>
+        </div>
         </div>
     </header>
     {% if messages %}
-            {% for message in messages %}
-                <div class="alert text-center alert-success {{ message.tags }} alert-dismissible fade show" role="alert">
-                    <strong>{{ message }}</strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            {% endfor %}
-        {% endif %}
+    {% for message in messages %}
+    <div class="alert text-center alert-success {{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>{{ message }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
     <section class="banner" section>
         <div class="circle_container">
             <div class="cirle">
@@ -160,7 +160,8 @@
 
             </div>
         </div>
-        <div class="b_img" style="background-image: url({% static 'media/image/ProfilePicture-Photoroom.png' %});"></div>
+        <div class="b_img" style="background-image: url({% static 'media/image/ProfilePicture-Photoroom.png' %});">
+        </div>
         <div class="typWriter">
             <div id="typwriter"></div>
         </div>
@@ -198,7 +199,11 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="common_title">
-                        <h2 class="mb-lg-0">About Me</h2>
+                        {% if Abouts %}
+                        {% for about in Abouts %}
+                        <h2 class="mb-lg-0">{{about.title}}</h2>
+                        {% endfor %}
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -228,7 +233,8 @@
                             This is MD Kawsar. I'm a professional Full-Stack Web developer with over 2 years of
                             experience. I'm from Dhaka, Bangladesh. I code and create web elements for amazing people
                             around the world. I like working with new people. New people, new experience. My
-                            technologies are HTML, CSS, Bootstrap, Tailwind CSS, JavaScript, React.js, Python, Django, MySQL, and
+                            technologies are HTML, CSS, Bootstrap, Tailwind CSS, JavaScript, React.js, Python, Django,
+                            MySQL, and
                             the CMS is WordPress.
                         </p>
                         <div class="buttons">
@@ -242,7 +248,7 @@
                 <div class="col-lg-4 d-none d-lg-block p-0">
                     <div class="right">
                         <div class="profile">
-                            <img class="w-100 h-100" src="{%static 'media/image/profile.png'%}" alt="personal profile">
+                            <img class="w-100 h-100" src="{{Abouts.profile_image.url}}" alt="personal profile">
                         </div>
                         <div class="personal_details">
                             <pre>
@@ -285,103 +291,30 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="common_title">
-                        <h2 class="mb-lg-0">My Skills</h2>
+                        {% if Skill_title %}
+                        {% for s_title in Skill_title %}
+                        <h2 class="mb-lg-0">{{s_title.title}}</h2>
+                        {% endfor %}
+                        {% endif %}
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="skills" id="skills">
-                        <div class="skill">
-                            <span class="tag">HTML & CSS</span>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-percent="95">
-                                    <div class="runningAnimation"></div>
-                                    <span class="skill-percent">0%</span>
+                        {% if Skills %}
+                            {% for skill in Skills %}
+                                <div class="skill">
+                                    <span class="tag">{{skill.range_text}}</span>
+                                    <div class="skill-bar">
+                                    <div class="skill-level" data-percent="{{skill.range_percentage}}">
+                                        <div class="runningAnimation"></div>
+                                        <span class="skill-percent">0%</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <span class="tag">Bootstrap</span>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-percent="95">
-                                    <div class="runningAnimation"></div>
-                                    <span class="skill-percent">0%</span>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <span class="tag">Tailwind CSS</span>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-percent="80">
-                                    <div class="runningAnimation"></div>
-                                    <span class="skill-percent">0%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <span class="tag">JavaScript</span>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-percent="75">
-                                    <div class="runningAnimation"></div>
-                                    <span class="skill-percent">0%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <span class="tag">React.Js</span>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-percent="70">
-                                    <div class="runningAnimation"></div>
-                                    <span class="skill-percent">0%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <span class="tag">Python & Django</span>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-percent="85">
-                                    <div class="runningAnimation"></div>
-                                    <span class="skill-percent">0%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <span class="tag">MySQL</span>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-percent="90">
-                                    <div class="runningAnimation"></div>
-                                    <span class="skill-percent">0%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <span class="tag">Git & GitHub</span>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-percent="90">
-                                    <div class="runningAnimation"></div>
-                                    <span class="skill-percent">0%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <span class="tag">WordPress</span>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-percent="80">
-                                    <div class="runningAnimation"></div>
-                                    <span class="skill-percent">0%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill">
-                            <span class="tag">Communication</span>
-                            <div class="skill-bar">
-                                <div class="skill-level" data-percent="99">
-                                    <div class="runningAnimation"></div>
-                                    <span class="skill-percent">0%</span>
-                                </div>
-                            </div>
-                        </div>
+                            {% endfor %}
+                        {% endif %}
                         <!-- Repeat for other skills -->
                     </div>
                 </div>
@@ -393,7 +326,11 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="common_title">
-                        <h2 class="mb-lg-0">My Services</h2>
+                        {% if Service_title %}
+                        {% for s_title in Service_title %}
+                        <h2 class="mb-lg-0">{{s_title.title}}</h2>
+                        {% endfor %}
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -414,7 +351,8 @@
                         <div class="details">
                             <span class="icon"><i class="fa-solid fa-code"></i></span>
                             <h3>Web Development</h3>
-                            <p>I handle the backend of a website via the most usable programming language, Python, Django, and the
+                            <p>I handle the backend of a website via the most usable programming language, Python,
+                                Django, and the
                                 database is MySQL. I always build a seamless website for users, which makes my clients
                                 more confident to work with me.</p>
                         </div>
@@ -488,7 +426,7 @@
                         </div>
                         <div class="itemBox">
                             <div class="items" data-item="frontend">
-                                <a href="https://mdkawsardev.github.io/lawliet/"target="_blank">
+                                <a href="https://mdkawsardev.github.io/lawliet/" target="_blank">
                                     <img class="w-100 h-100" src="{%static 'media/image/project1.png'%}" alt="">
                                 </a>
                             </div>
@@ -539,8 +477,8 @@
                             <li class="item swiper-slide">
                                 <span class="quate"><i class="fa-solid fa-quote-left"></i></span>
                                 <div class="client">
-                                    <div class="client_pic"><img src="{%static 'media/image/client1.jpg'%}" class="w-100 h-100"
-                                            alt=""></div>
+                                    <div class="client_pic"><img src="{%static 'media/image/client1.jpg'%}"
+                                            class="w-100 h-100" alt=""></div>
                                     <div class="c_name mb-xl-3 text-center mt-xl-2">
                                         <p class="mb-xl-0 text-uppercase">MD Al-Amin</p>
                                         <p class="mb-xl-0">CEO of Webzone Internet</p>
@@ -555,8 +493,8 @@
                             <li class="item swiper-slide">
                                 <span class="quate"><i class="fa-solid fa-quote-left"></i></span>
                                 <div class="client">
-                                    <div class="client_pic"><img src="{%static 'media/image/client2.jpg'%}" class="w-100 h-100"
-                                            alt=""></div>
+                                    <div class="client_pic"><img src="{%static 'media/image/client2.jpg'%}"
+                                            class="w-100 h-100" alt=""></div>
                                     <div class="c_name mb-xl-3 text-center mt-xl-2">
                                         <p class="mb-xl-0 text-uppercase">MD Shuvo</p>
                                         <p class="mb-xl-0">MD of LifeOnline</p>
@@ -571,8 +509,8 @@
                             <li class="item swiper-slide">
                                 <span class="quate"><i class="fa-solid fa-quote-left"></i></span>
                                 <div class="client">
-                                    <div class="client_pic"><img src="{%static 'media/image/client3.jpg'%}" class="w-100 h-100"
-                                            alt=""></div>
+                                    <div class="client_pic"><img src="{%static 'media/image/client3.jpg'%}"
+                                            class="w-100 h-100" alt=""></div>
                                     <div class="c_name mb-xl-3 text-center mt-xl-2">
                                         <p class="mb-xl-0 text-uppercase">Minhaz Foysal</p>
                                         <p class="mb-xl-0">Academic Head of LearnSS</p>
@@ -587,8 +525,8 @@
                             <li class="item swiper-slide">
                                 <span class="quate"><i class="fa-solid fa-quote-left"></i></span>
                                 <div class="client">
-                                    <div class="client_pic"><img src="{%static 'media/image/client4.jpg'%}" class="w-100 h-100"
-                                            alt=""></div>
+                                    <div class="client_pic"><img src="{%static 'media/image/client4.jpg'%}"
+                                            class="w-100 h-100" alt=""></div>
                                     <div class="c_name mb-xl-3 text-center mt-xl-2">
                                         <p class="mb-xl-0 text-uppercase">Ali Muzahid</p>
                                         <p class="mb-xl-0">Co-founder of HEX CODE IT</p>
@@ -621,7 +559,7 @@
                 <div class="col-lg-5">
                     <div class="form">
                         <h2>Hey! Lemme know you</h2>
-                        
+
                         <form action="/contact/" method="post">
                             {% csrf_token %}
                             <label for="Name">Name:</label>
@@ -664,7 +602,8 @@
                                             class="fa-brands fa-facebook"></i></span></a>
                                 <a href="https://github.com/mdkawsardev" target="_blank"><span><i
                                             class="fa-brands fa-github"></i></span></a>
-                                <a href="https://linkedin.com/in/mdkawsardevv" target="_blank"><span><i class="fa-brands fa-linkedin"></i></span></a>
+                                <a href="https://linkedin.com/in/mdkawsardevv" target="_blank"><span><i
+                                            class="fa-brands fa-linkedin"></i></span></a>
                                 <a href="https://instagram.com/mdkawsardevv" target="_blank"><span><i
                                             class="fa-brands fa-instagram"></i></span></a>
                             </div>
@@ -683,13 +622,13 @@
         </div>
     </footer>
     <script>
-        if ( window.history.replaceState ) {
-        window.history.replaceState( null, null, window.location.href );
-    }
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
     </script>
     <!-- Bootstrap JS files linking -->
     <script src="{% static "fontawesome/fontawesome.js"%}"></script>
-    <script src="{% static 'js/portfolio.js'%}"></script>
+    <script src="{% static "js/portfolio.js"%}"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{% static "js/script.js" %}"></script>

@@ -24,13 +24,17 @@ class AboutSection(models.Model):
     def __str__(self):
         return self.title
 
-class SkillSection(models.Model):
+class SkillTitle(models.Model):
     title = models.CharField(max_length=50)
+
+class SkillSection(models.Model):
     range_text = models.CharField(max_length=100)
     range_percentage = models.CharField(max_length=10)
 
-class ServiceSection(models.Model):
+class ServiceTitle(models.Model):
     title = models.CharField(max_length=100)
+
+class ServiceSection(models.Model):
     service_icon = models.CharField(max_length=255)
     service_name = models.CharField(max_length=255)
     service_description = models.TextField()
@@ -67,3 +71,8 @@ class ContactEmail(models.Model):
 class SocialMedia(models.Model):
     icon = models.CharField(max_length=255)
     link = models.CharField(max_length=255)
+
+class FooterText(models.Model):
+    footer_texts = models.TextField()
+    def __str__(self):
+        return self.footer_texts
