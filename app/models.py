@@ -56,7 +56,13 @@ class Contact(models.Model):
 
 class ContactNumber(models.Model):
     number = models.CharField(max_length=50)
+    def __str__(self):
+        return self.number
+    
+class ContactEmail(models.Model):
     email = models.EmailField(max_length=50)
+    def __str__(self):
+        return self.email
 
 class SocialMedia(models.Model):
     icon = models.CharField(max_length=255)
