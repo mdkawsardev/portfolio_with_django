@@ -682,6 +682,11 @@
 
         </div>
     </footer>
+    <script>
+        if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+    </script>
     <!-- Bootstrap JS files linking -->
     <script src="{% static "fontawesome/fontawesome.js"%}"></script>
     <script src="{% static 'js/portfolio.js'%}"></script>
