@@ -8,6 +8,7 @@ class Banner(models.Model):
 
 class AboutSection(models.Model):
     title = models.CharField(max_length=50)
+    greeting = models.CharField(max_length=255, default='Hello')
     description = models.TextField()
     profile_image = models.ImageField(default='example.png', blank=True, upload_to='media')
     profile_text = models.TextField()

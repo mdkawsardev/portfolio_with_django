@@ -200,9 +200,9 @@
                 <div class="col-lg-6">
                     <div class="common_title">
                         {% if Abouts %}
-                        {% for about in Abouts %}
-                        <h2 class="mb-lg-0">{{about.title}}</h2>
-                        {% endfor %}
+                            {% for about in Abouts %}
+                                <h2 class="mb-lg-0">{{about.title}}</h2>
+                            {% endfor %}
                         {% endif %}
                     </div>
                 </div>
@@ -211,77 +211,95 @@
                 <div class="col-lg-4 d-block d-lg-none p-0">
                     <div class="right">
                         <div class="profile">
-                            <img class="w-100 h-100" src="{%static 'media/image/profile.png'%}" alt="personal profile">
+                            {% if Abouts %}
+                                {% for About in Abouts %}
+                                    <img class="w-100 h-100" src="{{About.profile_image.url}}" alt="personal profile">
+                                {% endfor %}
+                            {% endif %}
                         </div>
                         <div class="personal_details">
-                            <pre>
-                                Name: MD. Kawsar 
-                                Age: 22Yr 
-                                professionalism: Web Developer 
-                                Residence: In Bangladesh 
-                                Address: Dhaka, Bangladesh 
-                                Email: admin@mdkawsardev.com
-                                Phone: +8801880275896, +8801845476197
-                            </pre>
+                            {% if Abouts %}
+                                {% for About in Abouts %}
+                                    <pre>
+                                        {{About.profile_text}}
+                                    </pre>
+                                {% endfor %}
+                            {% endif %}
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="left">
-                        <p class="mb-lg-0">Hello There<span>!</span></p>
-                        <p class="mb-lg-0">
-                            This is MD Kawsar. I'm a professional Full-Stack Web developer with over 2 years of
-                            experience. I'm from Dhaka, Bangladesh. I code and create web elements for amazing people
-                            around the world. I like working with new people. New people, new experience. My
-                            technologies are HTML, CSS, Bootstrap, Tailwind CSS, JavaScript, React.js, Python, Django,
-                            MySQL, and
-                            the CMS is WordPress.
-                        </p>
+                        {% if Abouts %}
+                            {% for About in Abouts %}
+                                <p class="mb-lg-0">{{About.greeting}}<span>!</span></p>
+                                <p class="mb-lg-0">
+                                    {{About.description}}
+                                </p>
+                            {% endfor %}
+                        {% endif %}
                         <div class="buttons">
-                            <a href="content/documents/updatedCvofKawsar.pdf" target="_blank" class="actionBtn">Download
-                                CV</a>
-                            <a href="content/documents/certificateOfWebDev.pdf" target="_blank"
-                                class="actionBtn">Certificate</a>
+                            {% if Abouts %}
+                            {% for About in Abouts %}
+                                <a href="{% static "media/documents/updatedCvofKawsar.pdf"%}" target="_blank" class="actionBtn">{{About.btn1}}</a>
+                                <a href="{% static "media/documents/certificateOfWebDev.pdf"%}" target="_blank"
+                                    class="actionBtn">{{About.btn2}}</a>
+                            {% endfor %}
+                        {% endif %}
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 d-none d-lg-block p-0">
                     <div class="right">
                         <div class="profile">
-                            <img class="w-100 h-100" src="{{Abouts.profile_image.url}}" alt="personal profile">
+                            {% if Abouts %}
+                                {% for About in Abouts %}
+                                    <img class="w-100 h-100" src="{{About.profile_image.url}}" alt="personal profile">
+                                {% endfor %}
+                            {% endif %}
                         </div>
                         <div class="personal_details">
-                            <pre>
-                                Name: MD. Kawsar 
-                                Age: 22Yr 
-                                professionalism: Web Developer 
-                                Residence: In Bangladesh 
-                                Address: Dhaka, Bangladesh 
-                                Email: admin@mdkawsardev.com
-                                Phone: +8801880275896, +8801845476197
-                            </pre>
+                            {% if Abouts %}
+                                {% for About in Abouts %}
+                                    <pre>
+                                        {{About.profile_text}}
+                                    </pre>
+                                {% endfor %}
+                            {% endif %}
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row counter_points">
                 <div class="col-lg-4">
-                    <div class="point text-center counter1">
-                        <h3><span>130</span></h3>
-                        <span>Coffee</span>
-                    </div>
+                    {% if Abouts %}
+                        {% for About in Abouts %}
+                            <div class="point text-center counter1">
+                                <h3><span>{{About.point1_number}}</span></h3>
+                                <span>{{About.point1_text}}</span>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                 </div>
                 <div class="col-lg-4">
-                    <div class="point text-center counter2">
-                        <h3><span>80</span></h3>
-                        <span>Clients</span>
-                    </div>
+                    {% if Abouts %}
+                        {% for About in Abouts %}
+                            <div class="point text-center counter2">
+                                <h3><span>{{About.point2_number}}</span></h3>
+                                <span>{{About.point2_text}}</span>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                 </div>
                 <div class="col-lg-4">
-                    <div class="point text-center counter3">
-                        <h3><span>2</span>+</h3>
-                        <span>Years of Experience</span>
-                    </div>
+                    {% if Abouts %}
+                        {% for About in Abouts %}
+                            <div class="point text-center counter3">
+                                <h3><span>{{About.point3_number}}</span>+</h3>
+                                <span>{{About.point3_text}}</span>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                 </div>
             </div>
         </div>
