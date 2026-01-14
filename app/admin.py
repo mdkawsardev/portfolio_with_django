@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django import forms
-from .models import Contact, Banner, SkillSection, AboutSection, ServiceSection, PortfolioSection, ClientSection, SocialMedia, ContactNumber, ContactEmail, FooterText, SkillTitle, ServiceTitle
+from .models import Contact, Banner, SkillSection, AboutSection, ServiceSection, PortfolioSection, ClientSection, SocialMedia, ContactNumber, ContactEmail, FooterText, SkillTitle, ServiceTitle, PortfolioTitle
 # Register your models here.
 admin.site.register(Banner)
 admin.site.register(SkillSection)
@@ -11,6 +11,7 @@ admin.site.register(ContactEmail)
 admin.site.register(FooterText)
 admin.site.register(SkillTitle)
 admin.site.register(ServiceTitle)
+admin.site.register(PortfolioTitle)
 @admin.register(AboutSection)
 class AboutSectionAdmin(admin.ModelAdmin):
     list_display = ['title']
@@ -28,7 +29,7 @@ class ContactAdmin(admin.ModelAdmin):
 class PortfolioSectionForm(forms.ModelForm):
     class Meta:
         model = PortfolioSection
-        fields = ['title','filter_keyword', 'project_url', 'project_image']
+        fields = ['filter_keyword', 'project_url', 'project_image']
         widgets = {
             'filter_keyword': forms.TextInput(attrs={
                 'placeholder': 'frontend, backend, wordpress, etc.'
