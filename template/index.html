@@ -415,7 +415,11 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="common_title">
-                        <h2 class="mb-lg-0">Happy Clients</h2>
+                        {% if Client_title %}
+                            {% for c_title in Client_title %}
+                                <h2 class="mb-lg-0">{{c_title.title}}</h2>
+                            {% endfor %}
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -423,71 +427,23 @@
                 <div class="col-12">
                     <div class="swiper">
                         <ul class="list ps-0 m-0 swiper-wrapper">
-                            <li class="item swiper-slide">
-                                <span class="quate"><i class="fa-solid fa-quote-left"></i></span>
-                                <div class="client">
-                                    <div class="client_pic"><img src="{%static 'media/image/client1.jpg'%}"
-                                            class="w-100 h-100" alt=""></div>
-                                    <div class="c_name mb-xl-3 text-center mt-xl-2">
-                                        <p class="mb-xl-0 text-uppercase">MD Al-Amin</p>
-                                        <p class="mb-xl-0">CEO of Webzone Internet</p>
-                                    </div>
-                                </div>
-                                <p>"As a web developer, Kawsar is an expert in front-end and back-end technologies.
-                                    Additionally, his dedication to projects is outstanding. Overall, Kawsar is a highly
-                                    skilled and reliable web developer who consistently delivers high-quality projects."
-                                </p>
-                                <span class="heart"><i class="fa-solid fa-heart"></i></span>
-                            </li>
-                            <li class="item swiper-slide">
-                                <span class="quate"><i class="fa-solid fa-quote-left"></i></span>
-                                <div class="client">
-                                    <div class="client_pic"><img src="{%static 'media/image/client2.jpg'%}"
-                                            class="w-100 h-100" alt=""></div>
-                                    <div class="c_name mb-xl-3 text-center mt-xl-2">
-                                        <p class="mb-xl-0 text-uppercase">MD Shuvo</p>
-                                        <p class="mb-xl-0">MD of LifeOnline</p>
-                                    </div>
-                                </div>
-                                <p>I worked with Kawsar. His working quality is amazing, he won my trust with this work
-                                    delivery. He made my dream project as I wanted, and I will always prefer him as a
-                                    great developer.
-                                </p>
-                                <span class="heart"><i class="fa-solid fa-heart"></i></span>
-                            </li>
-                            <li class="item swiper-slide">
-                                <span class="quate"><i class="fa-solid fa-quote-left"></i></span>
-                                <div class="client">
-                                    <div class="client_pic"><img src="{%static 'media/image/client3.jpg'%}"
-                                            class="w-100 h-100" alt=""></div>
-                                    <div class="c_name mb-xl-3 text-center mt-xl-2">
-                                        <p class="mb-xl-0 text-uppercase">Minhaz Foysal</p>
-                                        <p class="mb-xl-0">Academic Head of LearnSS</p>
-                                    </div>
-                                </div>
-                                <p>I have gained new ideas by working with Kawsar. He is not only a developer but also a
-                                    good designer and excellent communicator. I totally surprised by his amazing working
-                                    skills.
-                                </p>
-                                <span class="heart"><i class="fa-solid fa-heart"></i></span>
-                            </li>
-                            <li class="item swiper-slide">
-                                <span class="quate"><i class="fa-solid fa-quote-left"></i></span>
-                                <div class="client">
-                                    <div class="client_pic"><img src="{%static 'media/image/client4.jpg'%}"
-                                            class="w-100 h-100" alt=""></div>
-                                    <div class="c_name mb-xl-3 text-center mt-xl-2">
-                                        <p class="mb-xl-0 text-uppercase">Ali Muzahid</p>
-                                        <p class="mb-xl-0">Co-founder of HEX CODE IT</p>
-                                    </div>
-                                </div>
-                                <p>Kawsar is the best developer ever. He maintained my trust with his work and timely
-                                    delivery. I appreciate his outstanding communication skills. Finally, I would like
-                                    to say that he is an excellent designer and developer.
-                                </p>
-                                <span class="heart"><i class="fa-solid fa-heart"></i></span>
-                            </li>
-
+                            {% if ClientReviews %}
+                                {% for ClientReview in ClientReviews %}
+                                    <li class="item swiper-slide">
+                                        <span class="quate"><i class="fa-solid fa-quote-left"></i></span>
+                                        <div class="client">
+                                            <div class="client_pic"><img src="{{ClientReview.client_photo.url}}"
+                                                    class="w-100 h-100" alt=""></div>
+                                            <div class="c_name mb-xl-3 text-center mt-xl-2">
+                                                <p class="mb-xl-0 text-uppercase">{{ClientReview.client_name}}</p>
+                                                <p class="mb-xl-0">{{ClientReview.client_profession}}</p>
+                                            </div>
+                                        </div>
+                                        <p>{{ClientReview.client_comments}}</p>
+                                        <span class="heart"><i class="fa-solid fa-heart"></i></span>
+                                    </li>
+                                {% endfor %}
+                            {% endif %}
                         </ul>
                         <div class="swiper-pagination"></div>
                     </div>
@@ -500,15 +456,22 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="common_title">
-                        <h2 class="mb-lg-0">Contact Me</h2>
+                        {% if Contact_title %}
+                            {% for con_title in Contact_title %}
+                                <h2 class="mb-lg-0">{{con_title.title}}</h2>
+                            {% endfor %}
+                        {% endif %}
                     </div>
                 </div>
             </div>
             <div class="row contact_parent overflow-hidden">
                 <div class="col-lg-5">
                     <div class="form">
-                        <h2>Hey! Lemme know you</h2>
-
+                        {% if Contact_title %}
+                            {% for message in Contact_title %}
+                                <h2>{{message.msg}}</h2>
+                            {% endfor %}
+                        {% endif %}
                         <form action="/contact/" method="post">
                             {% csrf_token %}
                             <label for="Name">Name:</label>
@@ -525,7 +488,11 @@
                 </div>
                 <div class="col-lg-7 d-none d-lg-flex px-0">
                     <div class="contact_img h-100">
-                        <img src="{%static 'media/image/contact.jpg'%}" class="w-100 h-100" alt="">
+                        {% if Contact_title %}
+                            {% for image in Contact_title %}
+                                <img src="{{image.contact_image.url}}" class="w-100 h-100" alt="">
+                            {% endfor %}
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -538,23 +505,28 @@
                     <div class="col-lg-6">
                         <div class="f_left">
                             <h2>Inform Me</h2>
-                            <span>Phone: +8801880275896</span>
-                            <span>Phone: +8801845476197</span>
-                            <span>Email: admin@mdkawsardev.com</span>
+                            {% if ContactNumbers %}
+                                {% for contact in ContactNumbers %}
+                                    <span>{{contact.number}}</span>
+                                {% endfor %}
+                            {% endif %}
+                            {% if ContactEmails %}
+                                {% for email in ContactEmails %}
+                                    <span>Email: {{email.email}}</span>
+                                {% endfor %}
+                            {% endif %}
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="f_right">
                             <h2>Social Media</h2>
                             <div class="socials">
-                                <a href="https://facebook.com/mdkawsardevv" target="_blank"><span><i
-                                            class="fa-brands fa-facebook"></i></span></a>
-                                <a href="https://github.com/mdkawsardev" target="_blank"><span><i
-                                            class="fa-brands fa-github"></i></span></a>
-                                <a href="https://linkedin.com/in/mdkawsardevv" target="_blank"><span><i
-                                            class="fa-brands fa-linkedin"></i></span></a>
-                                <a href="https://instagram.com/mdkawsardevv" target="_blank"><span><i
-                                            class="fa-brands fa-instagram"></i></span></a>
+                                {% if SocialMedias %}
+                                    {% for social in SocialMedias %}
+                                        <a href="{{social.link}}" target="_blank"><span><i
+                                                class="{{social.icon}}"></i></span></a>
+                                    {% endfor %}
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -562,7 +534,11 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="copyRight">
-                            <p>&copy;2025:All Rights Reserved by mdkawsardev</p>
+                            {% if FooterTexts %}
+                                {% for text in FooterTexts %}
+                                    <p>&copy;{{text.footer_texts}}</p>
+                                {% endfor %}
+                            {% endif %}
                         </div>
                     </div>
                 </div>

@@ -48,13 +48,21 @@ class PortfolioSection(models.Model):
     project_url = models.CharField(max_length=255)
     project_image = models.ImageField(upload_to='media', blank=True)
 
-class ClientSection(models.Model):
+class ClientTitle(models.Model):
     title = models.CharField(max_length=100)
+
+class ClientSection(models.Model):
     client_name = models.CharField(max_length=100)
     client_profession = models.CharField(max_length=100)
     client_comments = models.TextField()
     client_photo = models.ImageField(blank=True, upload_to='media', default='default.png')
+    def __str__(self):
+        return self.client_name
 
+class ContactTitle(models.Model):
+    title = models.CharField(max_length=100)
+    msg = models.CharField(max_length=255, default='Hey, Contact me')
+    contact_image = models.ImageField(blank=True, upload_to='media')
 
 class Contact(models.Model):
     name = models.CharField(max_length=255)

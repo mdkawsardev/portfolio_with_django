@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib import messages
-from .models import Contact, AboutSection, ContactEmail, ContactNumber, FooterText, SkillSection, ServiceSection, ClientSection, Banner, PortfolioSection, SocialMedia, SkillTitle, ServiceTitle, PortfolioTitle
+from .models import Contact, AboutSection, ContactEmail, ContactNumber, FooterText, SkillSection, ServiceSection, ClientSection, Banner, PortfolioSection, SocialMedia, SkillTitle, ServiceTitle, PortfolioTitle, ClientTitle, ContactTitle
 # Create your views here.
 def home(request):
     all_info = {
@@ -13,7 +13,9 @@ def home(request):
         'Services': ServiceSection.objects.all(),
         'Porfolio_title': PortfolioTitle.objects.all(),
         'Porfolios': PortfolioSection.objects.all(),
+        'Client_title': ClientTitle.objects.all(),
         'ClientReviews': ClientSection.objects.all(),
+        'Contact_title': ContactTitle.objects.all(),
         'Contacts': Contact.objects.all(),
         'ContactNumbers': ContactNumber.objects.all(),
         'ContactEmails': ContactEmail.objects.all(),
