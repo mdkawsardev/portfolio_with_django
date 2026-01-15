@@ -1,10 +1,13 @@
 from django.db import models
 
 # Create your models here.
-class Banner(models.Model):
+class BannerImage(models.Model):
     image = models.ImageField(default='example.png', blank=True, upload_to='media')
-    sideTitle = models.CharField(max_length=255)
-    mainTitle = models.CharField(max_length=255)
+
+class SelfTag(models.Model):
+    self_tags = models.CharField(max_length=100)
+    def __str__(self):
+        return self.self_tags
 
 class AboutSection(models.Model):
     title = models.CharField(max_length=50)

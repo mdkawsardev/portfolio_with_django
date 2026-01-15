@@ -152,7 +152,7 @@
     </div>
     {% endfor %}
     {% endif %}
-    <section class="banner" section>
+    <section class="banner">
         <div class="circle_container">
             <div class="cirle">
                 <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
@@ -160,10 +160,20 @@
 
             </div>
         </div>
-        <div class="b_img" style="background-image: url({% static 'media/image/ProfilePicture-Photoroom.png' %});">
-        </div>
+        {% if Banner_image %}
+            {% for b_image in Banner_image %}
+                <div class="b_img" style="background-image: url({{b_image.image.url}});">
+                </div>
+            {% endfor %}
+        {% endif %}
         <div class="typWriter">
-            <div id="typwriter"></div>
+            <div id="typwriter">
+                {% if Self_tags %}
+                    {% for tag in Self_tags %}
+                        <span class="self_tag">{{tag.self_tags}}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
         </div>
         <div class="mini-stars">
             <span class="star"></span>

@@ -77,11 +77,13 @@ const toggleBtn = () => {
 toggleBtn()
 
 // TypeWriter effect
-const titles = [
-    "Web Designer",
-    "Web Developer",
-    "Freelancer"
-];
+const myList = Array.from(document.querySelectorAll('.self_tag'))
+const titles = [];
+const looping = myList.forEach((k)=>{
+    titles.push(k.innerHTML)
+})
+
+
 const typingSpeed = 100;
 const erasingSpeed = 50;
 const delayBetween = 500;
@@ -206,6 +208,8 @@ function typeLoop() {
 }
 
 typeLoop();
+
+
 // Code typeWriter for one item
 
 // This is for mixItUp/filter

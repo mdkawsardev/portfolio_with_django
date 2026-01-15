@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib import messages
-from .models import Contact, AboutSection, ContactEmail, ContactNumber, FooterText, SkillSection, ServiceSection, ClientSection, Banner, PortfolioSection, SocialMedia, SkillTitle, ServiceTitle, PortfolioTitle, ClientTitle, ContactTitle
+from .models import Contact, AboutSection, ContactEmail, ContactNumber, FooterText, SkillSection, ServiceSection, ClientSection, BannerImage, PortfolioSection, SocialMedia, SkillTitle, ServiceTitle, PortfolioTitle, ClientTitle, ContactTitle, SelfTag
 # Create your views here.
 def home(request):
     all_info = {
-        'Banners': Banner.objects.all(),
+        'Banner_image': BannerImage.objects.all(),
+        'Self_tags': SelfTag.objects.all(),
         'Abouts': AboutSection.objects.all(),
         'Skill_title': SkillTitle.objects.all(),
         'Skills': SkillSection.objects.all(),
