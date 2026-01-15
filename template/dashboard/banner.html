@@ -1,35 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="icon" href="../content/logo/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="../css/bootstrap-files/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/custom-css/style.css">
-    <link rel="stylesheet" href="../css/custom-css/responsive.css">
-</head>
-
-<body>
+{% extends "base.html" %}
+{% block title %}Dashboard | Banner{% endblock title %}
+{% block body %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert position-fixed top-0 w-100 text-center alert-success {{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>{{ message }}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+{% endif %} 
     <div class="dash_container">
         <div class="dashboard_navbar">
             <div class="dash_title">
                 <h1 class="mb-0">Dashboard</h1>
             </div>
-            <h5 class="website"><a href="../index.html" target="_blank">Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a></h5>
+            <h5 class="website"><a href="/" target="_blank">Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a></h5>
             <ul class="p-0">
-                <li class="text-center"><a class="text-decoration-none d_link " href="navbar.html">Navbar</a></li>
-                <li class="text-center"><a class="text-decoration-none d_link d_active" href="banner.html">Banner</a>
+                <li class="text-center"><a class="text-decoration-none d_link " href="/navbar">Navbar</a></li>
+                <li class="text-center"><a class="text-decoration-none d_link d_active" href="/banner">Banner</a>
                 </li>
-                <li class="text-center"><a class="text-decoration-none d_link" href="about.html">About</a></li>
-                <li class="text-center"><a class="text-decoration-none d_link" href="skill.html">Skills</a></li>
-                <li class="text-center"><a class="text-decoration-none d_link" href="service.html">Services</a></li>
-                <li class="text-center"><a class="text-decoration-none d_link" href="portfolio.html">Portfolio</a></li>
-                <li class="text-center"><a class="text-decoration-none d_link" href="testimonial.html">Testimonial</a>
+                <li class="text-center"><a class="text-decoration-none d_link" href="/about">About</a></li>
+                <li class="text-center"><a class="text-decoration-none d_link" href="/skill">Skills</a></li>
+                <li class="text-center"><a class="text-decoration-none d_link" href="/service">Services</a></li>
+                <li class="text-center"><a class="text-decoration-none d_link" href="/portfolio">Portfolio</a></li>
+                <li class="text-center"><a class="text-decoration-none d_link" href="/testimonial">Testimonial</a>
                 </li>
-                <li class="text-center"><a class="text-decoration-none d_link" href="contact.html">Contact</a></li>
-                <li class="text-center"><a class="text-decoration-none d_link" href="footer.html">Footer</a></li>
+                <li class="text-center"><a class="text-decoration-none d_link" href="/contact">Contact</a></li>
+                <li class="text-center"><a class="text-decoration-none d_link" href="/footer">Footer</a></li>
             </ul>
         </div>
         <div class="d_content">
@@ -37,46 +34,39 @@
                 <h2>Banner Details</h2>
                 <div class="banner_details d-flex justify-content-between">
                     <div class="banner_form mt-5">
-                        <form class="common_form" action="#">
-                            <div class="b_input">
-                                <label for="welcome">Welcome Message</label>
-                                <input type="text" id="welcome" name="">
-                            </div>
+                        <form class="common_form" action="/banner/" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
                             <div class="b_input">
                                 <label for="im">Banner Image</label>
-                                <input type="file" id="im" name="">
-                            </div>
-                            <div class="b_input">
-                                <label for="firtName">First Name</label>
-                                <input type="text" id="firtName" name="">
+                                <input type="file" id="im" name="image">
                             </div>
                             <div class="b_input">
                                 <label for="titleName">Name Title</label>
-                                <input type="text" id="titleName" name="">
+                                <input type="text" id="titleName" name="title_name">
                             </div>
                             <button type="submit" name="" class="submitBtn">Save</button>
                         </form>
                     </div>
                     <div class="banner_preview">
-                        <div class="preview_message">
-                            <span>Preview welcome message</span>
-                        </div>
                         <div class="preview_image">
-                            <span>Preview Image</span>
-                            <img src="" alt="">
+                            {% if mybanner_image %}
+                                {% for baner_img in mybanner_image %}
+                                    <h3>Preview Image</h3>
+                                    <img src="{{baner_img.image.url}}" alt="">
+                                {% endfor %}
+                            {% endif %}
                         </div>
-                        <div class="preview_fName">
-                            <span>Preview first title</span>
-                        </div>
-                        <div class="preview_title">
-                            <span>Preview second title</span>
+                        <div class="preview_title mt-5">
+                            {% if self_tag %}
+                                <h3>Preview Tags</h3>
+                                {% for my_tag in self_tag %}
+                                    <h6>{{my_tag.self_tags}}</h6>
+                                {% endfor %}
+                            {% endif %}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="../fontawesome/fontawesome.js"></script>
-</body>
-
-</html>
+{% endblock body %}

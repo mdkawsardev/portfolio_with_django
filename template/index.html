@@ -24,13 +24,13 @@
         <div class="form login_form d-none">
             <div class="close"><i class="fa-solid fa-xmark"></i></div>
             <h2>Login</h2>
-            <form action="/loginUser/" method="post">
+            <form action="/navbar/" method="post">
                 {% csrf_token %}
                 <label for="user">Username:</label>
-                <input type="text" id="user" required>
+                <input type="text" id="user" name="username" required>
                 <label for="pass">Password:</label>
                 <div class="loginInput forEye">
-                    <input type="password" id="pass" required>
+                    <input type="password" id="pass" name="password" required>
                     <div class="loginEyes eyes">
                         <span class="openEye1 d-none"><i class="fa-solid fa-eye"></i></span>
                         <span class="closeEye1"><i class="fa-solid fa-eye-slash"></i></span>

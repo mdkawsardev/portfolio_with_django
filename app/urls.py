@@ -4,7 +4,17 @@ from django.conf.urls.static import static
 from . import views
 urlpatterns = [
     path('', views.home, name='home'),
-    path('contact/', views.contact, name='contact')
+    path('contact/', views.contact, name='contact'),
+    path('loginuser/', views.loginuser, name='loginuser'),
+    path('navbar/', views.navbar, name='navbar'),
+    path('banner/', views.banner, name='banner'),
+    path('about/', views.about, name='about'),
+    path('skill/', views.skill, name='skill'),
+    path('service/', views.service, name='service'),
+    path('portfolio/', views.portfolio, name='portfolio'),
+    path('testimonial/', views.testimonial, name='testimonial'),
+    path('contact/', views.contact, name='contact'),
+    path('footer/', views.footer, name='footer'),
 ]
 
 if settings.DEBUG:
