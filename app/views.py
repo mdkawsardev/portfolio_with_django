@@ -44,21 +44,7 @@ def navbar(request):
     return render(request, 'dashboard/navbar.html')
 
 def banner(request):
-    if request.method == "POST":
-        banner_img = request.FILES.get('image')
-        title_name = request.POST.get('title_name')
-        BannerImage.objects.create(
-            image= banner_img
-        )
-        SelfTag.objects.create(
-            self_tags= title_name
-        )
-        messages.success(request, "Your profile updated successfully!")
-    all_data = {
-        'mybanner_image': BannerImage.objects.all(),
-        'self_tag': SelfTag.objects.all()
-    }
-    return render(request, 'dashboard/banner.html', all_data)
+    return render(request, 'dashboard/banner.html')
 
 def about(request):
     return render(request, 'dashboard/about.html')
