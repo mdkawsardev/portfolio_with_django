@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="MD KAWSAR DEV">
+    <meta name="description"
+        content="mdkawsardev is a professional website developer. His name is Md Kawsar, and he lives in Dhaka, Bangladesh. He has a great reputation with his development career. He has done a lot of projects with potential clients. If you need a professional website for your business, just contact him. All information is in his personal portfolio.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mdkawsardev.com">
+    <meta property="og:title" content="MD KAWSAR DEV">
+    <meta property="og:description"
+        content="mdkawsardev is a professional website developer. His name is Md Kawsar, and he lives in Dhaka, Bangladesh. He has a great reputation with his development career. He has done a lot of projects with potential clients. If you need a professional website for your business, just contact him. All information is in his personal portfolio.">
+    <meta property="og:image" content="">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mdkawsardev.com">
+    <meta property="twitter:title" content="MD KAWSAR DEV">
+    <meta property="twitter:description"
+        content="mdkawsardev is a professional website developer. His name is Md Kawsar, and he lives in Dhaka, Bangladesh. He has a great reputation with his development career. He has done a lot of projects with potential clients. If you need a professional website for your business, just contact him. All information is in his personal portfolio.">
+    <meta property="twitter:image" content="">
+    <meta name="keywords"
+        content="web developer, web developer in bd, web developer in Dhaka, web developer in Bangladesh, website development, website designer, developer portfolio, web developer portfolio, md kawsar, mdkawsardev, kawsar, imran kawsar, web development service, web developer portfolio, HTML Developer, HTML and CSS Developer, Front-end developer, web designer">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="2 days">
+    <meta name="author" content="mdkawsardev">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="icon" href="{% static 'media/logo/logo.png'%}" type="image/x-icon">
+    <!-- Bootstrap files linking -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Bootstrap files linking -->
+    <!-- Custom CSS files linking -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <!-- Custom CSS files linking -->
+</head>
+<body>
+    {% block body %}{% endblock body %}
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+    <!-- Bootstrap JS files linking -->
+    <script src="{% static "fontawesome/fontawesome.js"%}"></script>
+    <script src="{% static "js/portfolio.js"%}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static "js/script.js" %}"></script>
+</body>
+</html>

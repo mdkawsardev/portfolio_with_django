@@ -37,3 +37,7 @@ def contact(request):
         )
         messages.success(request, "Thanks! Your information has been sent.")
     return render(request, 'index.html')
+
+def loginUser(request):
+    
+    return render(request, 'index.html')
