@@ -15,6 +15,7 @@ urlpatterns = [
     path('testimonial/', views.testimonial, name='testimonial'),
     path('contact/', views.contact, name='contact'),
     path('footer/', views.footer, name='footer'),
+    path('logout/', views.logoutuser, name='logout'),
 ]
 
 if settings.DEBUG:

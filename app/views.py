@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import Contact, AboutSection, ContactEmail, ContactNumber, FooterText, SkillSection, ServiceSection, ClientSection, BannerImage, PortfolioSection, SocialMedia, SkillTitle, ServiceTitle, PortfolioTitle, ClientTitle, ContactTitle, SelfTag
 # Create your views here.
@@ -23,6 +23,15 @@ def home(request):
         'SocialMedias': SocialMedia.objects.all(),
         'FooterTexts': FooterText.objects.all()
     }
+    if request.method == "POST":
+        userName = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=userName, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('/navbar')
+        else:
+            return render(request, 'loginuser.html')
     return render(request, 'index.html', all_info)
 
 def contact(request):
@@ -40,37 +49,57 @@ def contact(request):
 
 def navbar(request):
     if not request.user.is_authenticated:
-        return redirect('/loginuser')
-    return render(request, 'dashboard/navbar.html')
+        return redirect('/')
+    else:
+        return render(request, 'dashboard/navbar.html')
 
 def banner(request):
-    return render(request, 'dashboard/banner.html')
+    if not request.user.is_authenticated:
+        return redirect('/')
+    else:
+        return render(request, 'dashboard/banner.html')
 
 def about(request):
-    return render(request, 'dashboard/about.html')
+    if not request.user.is_authenticated:
+        return redirect('/')
+    else:
+        return render(request, 'dashboard/about.html')
 def skill(request):
-    return render(request, 'dashboard/skill.html')
+    if not request.user.is_authenticated:
+        return redirect('/')
+    else:
+        return render(request, 'dashboard/skill.html')
 def service(request):
-    return render(request, 'dashboard/service.html')
+    if not request.user.is_authenticated:
+        return redirect('/')
+    else:
+        return render(request, 'dashboard/service.html')
 def portfolio(request):
-    return render(request, 'dashboard/portfolio.html')
+    if not request.user.is_authenticated:
+        return redirect('/')
+    else:
+        return render(request, 'dashboard/portfolio.html')
 def testimonial(request):
-    return render(request, 'dashboard/testimonial.html')
+    if not request.user.is_authenticated:
+        return redirect('/')
+    else:
+        return render(request, 'dashboard/testimonial.html')
 def contact(request):
-    return render(request, 'dashboard/contact.html')
+    if not request.user.is_authenticated:
+        return redirect('/')
+    else:
+        return render(request, 'dashboard/contact.html')
 def footer(request):
-    return render(request, 'dashboard/footer.html')
+    if not request.user.is_authenticated:
+        return redirect('/')
+    else:
+        return render(request, 'dashboard/footer.html')
 
 def loginuser(request):
     if request.user.is_authenticated:
         return redirect('/navbar')
-    if request.method == "POST":
-        userName = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=userName, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('/navbar')
-        else:
-            return render(request, 'loginuser.html')
-    return render(request, 'loginuser.html')
+    return render(request, 'index.html')
+
+def logoutuser(request):
+    logout(request)
+    return redirect('/')

@@ -2,6 +2,14 @@
 {% block title %}Dashboard{% endblock title %}
 
 {% block body %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert position-fixed top-0 w-100 text-center alert-success {{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>{{ message }}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+{% endif %} 
     <div class="dash_container">
         <div class="dashboard_navbar">
             <div class="dash_title">
@@ -19,6 +27,9 @@
                 <li class="text-center"><a class="text-decoration-none d_link" href="/contact">Contact</a></li>
                 <li class="text-center"><a class="text-decoration-none d_link" href="/footer">Footer</a></li>
             </ul>
+            <div class="text-center">
+                <a href="/logout">Logout</a>
+            </div>
         </div>
         <div class="d_content">
             <div class="container">
