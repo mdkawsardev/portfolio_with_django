@@ -14,7 +14,7 @@
             <div class="dash_title">
                 <h1 class="mb-0">Dashboard</h1>
             </div>
-            <h5 class="website"><a href="/" target="_blank">Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a></h5>
+            <h5 class="website"><a href="{% url "home" %}" target="_blank">Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a></h5>
             <ul class="p-0">
                 <li class="text-center"><a class="text-decoration-none d_link " href="/navbar">Navbar</a></li>
                 <li class="text-center"><a class="text-decoration-none d_link d_active" href="/banner">Banner</a>
@@ -43,7 +43,7 @@
                                 <label for="im">Banner Image</label>
                                 <input type="file" id="im" name="image">
                             </div>
-                            <button type="submit" name="" class="submitBtn">Save</button>
+                            <button type="submit" class="submitBtn mb-lg-5">Add</button>
                         </form>
                         <form class="common_form" action="/banner/" method="post">
                             {% csrf_token %}
@@ -51,7 +51,7 @@
                                 <label for="titleName">Name Title</label>
                                 <input type="text" id="titleName" name="title_name">
                             </div>
-                            <button type="submit" name="" class="submitBtn">Save</button>
+                            <button type="submit" name="" class="submitBtn">Add</button>
                         </form>
                     </div>
                     <div class="banner_preview">
@@ -64,12 +64,32 @@
                             {% endif %} {% endcomment %}
                         </div>
                         <div class="preview_title mt-5">
-                            {% comment %} {% if self_tag %}
-                                <h3>Preview Tags</h3>
-                                {% for my_tag in self_tag %}
-                                    <h6>{{my_tag.self_tags}}</h6>
-                                {% endfor %}
-                            {% endif %} {% endcomment %}
+                            <table class="w-100">
+                                <tr>
+                                    <th>Preview Tags</th>
+                                    <th><i class="fa-solid fa-pen"></i></th>
+                                </tr>
+                                
+                                {% if banner_tag %}
+                                    {% for my_tag in banner_tag %}
+                                <tr>
+                                    <td>{{my_tag.self_tags}}</td>
+                                    <td class="d-flex gap-2 justify-content-center">
+                                        <form action="{% url "delete" %}" method="post">
+                                            {% csrf_token %}
+                                            <input type="hidden" value="{{my_tag.id}}" name="id">
+                                            <input type="submit" class="submitBtn mt-1" value="Delete">
+                                        </form>
+                                        <form action="{% url "update" %}" method="post">
+                                            {% csrf_token %}
+                                            <input type="hidden" value="{{my_tag.id}}" name="id">
+                                            <input type="submit" class="submitBtn mt-1" value="Update">
+                                        </form>
+                                    </td>
+                                </tr>
+                                    {% endfor %}
+                                {% endif %}
+                            </table>
                         </div>
                     </div>
                 </div>

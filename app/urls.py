@@ -16,6 +16,9 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('footer/', views.footer, name='footer'),
     path('logout/', views.logoutuser, name='logout'),
+    path('update/', views.updateItem, name='update'),
+    path('delete/', views.deleteItem, name='delete'),
+    path('insert_updated_data/', views.insert_updated_data, name='insert_updated_data'),
 ]
 
 if settings.DEBUG:

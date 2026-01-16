@@ -62,7 +62,14 @@ def banner(request):
     if not request.user.is_authenticated:
         return redirect('/')
     else:
-        return render(request, 'dashboard/banner.html')
+        banner_data = {
+        'banner_tag': SelfTag.objects.all(),
+        }
+        if request.method == "POST":
+            banner_tag = request.POST.get('title_name')
+            SelfTag.objects.create(self_tags=banner_tag)
+            messages.success(request, "Tag added successfully!")
+        return render(request, 'dashboard/banner.html', banner_data)
 
 
 def about(request):
@@ -123,3 +130,29 @@ def loginuser(request):
 def logoutuser(request):
     logout(request)
     return redirect('/')
+
+
+def updateItem(request):
+    if request.method == "POST":
+        id = request.POST.get('id')
+        
+        update_data = {
+            'update': SelfTag.objects.filter(id=id).all()
+        }
+        return render(request, 'update.html', update_data)
+    return render(request, 'update.html')
+
+def deleteItem(request):
+    if request.method == "POST":
+        id = request.POST.get('id')
+        SelfTag.objects.filter(id=id).delete()
+        messages.success(request, "Tag deleted successfully!")
+        return redirect('/banner')
+    
+def insert_updated_data(request):
+    if request.method == "POST":
+        id = request.POST.get('id')
+        tag_name = request.POST.get('tag_name')
+        SelfTag.objects.filter(id=id).update(self_tags=tag_name)
+        messages.success(request, "Tag updated successfully!")
+        return redirect('/banner')
