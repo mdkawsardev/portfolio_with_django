@@ -123,11 +123,13 @@
 
             </div>
         </div>
-        {% if Banner_image %}
-            {% for image in Banner_image %}
+        {% for image in Banner_image %}
+            {% if image.image %}
                 <div class="b_img" style="background-image: url({{image.image.url}});"></div>
-            {% endfor %}
-        {% endif %}
+            {% else %}
+                <div class="b_img" style="background-image: ash;"></div>
+            {% endif %}
+        {% endfor %}
         <div class="typWriter">
             <div id="typwriter">
                 {% if Self_tags %}
