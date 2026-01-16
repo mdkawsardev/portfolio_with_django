@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class BannerImage(models.Model):
-    image = models.ImageField(default='example.png', blank=True, upload_to='media')
+    image = models.ImageField(default='default.png', blank=True, upload_to='media')
 
 class SelfTag(models.Model):
     self_tags = models.CharField(max_length=100)
@@ -13,7 +13,7 @@ class AboutSection(models.Model):
     title = models.CharField(max_length=50)
     greeting = models.CharField(max_length=255, default='Hello')
     description = models.TextField()
-    profile_image = models.ImageField(default='example.png', blank=True, upload_to='media')
+    profile_image = models.ImageField(default='default.png', blank=True, upload_to='media')
     profile_text = models.TextField()
     btn1 = models.CharField(max_length=50)
     btn1_Link = models.TextField()
@@ -65,7 +65,7 @@ class ClientSection(models.Model):
 class ContactTitle(models.Model):
     title = models.CharField(max_length=100)
     msg = models.CharField(max_length=255, default='Hey, Contact me')
-    contact_image = models.ImageField(blank=True, upload_to='media')
+    contact_image = models.ImageField(blank=True, default='default.png', upload_to='media')
 
 class Contact(models.Model):
     name = models.CharField(max_length=255)

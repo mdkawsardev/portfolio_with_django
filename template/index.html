@@ -124,9 +124,8 @@
             </div>
         </div>
         {% if Banner_image %}
-            {% for b_image in Banner_image %}
-                <div class="b_img" style="background-image: url({{b_image.image.url}});">
-                </div>
+            {% for image in Banner_image %}
+                <div class="b_img" style="background-image: url({{image.image.url}});"></div>
             {% endfor %}
         {% endif %}
         <div class="typWriter">
