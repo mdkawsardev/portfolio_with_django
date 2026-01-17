@@ -49,19 +49,29 @@
                             {% csrf_token %}
                             <div class="b_input">
                                 <label for="titleName">Enter your tag:</label>
-                                <input type="text" id="titleName" name="title_name">
+                                <input type="text" id="titleName" name="title_name" required>
                             </div>
                             <button type="submit" class="submitBtn">Add</button>
                         </form>
                     </div>
                     <div class="banner_preview">
                         <div class="preview_image">
-                            {% comment %} {% if mybanner_image %}
-                                {% for baner_img in mybanner_image %}
-                                    <h3>Preview Image</h3>
-                                    <img src="{{baner_img.image.url}}" alt="">
-                                {% endfor %}
-                            {% endif %} {% endcomment %}
+                            <table>
+                                <tr>
+                                    <th><h3>Preview Image</h3></th>
+                                    <th><h3><i class="fa-solid fa-pen"></i></h3></th>
+                                </tr>
+                                {% if banner_img %}
+                                    {% for b_img in banner_img %}
+                                        <tr>
+                                            <td><img src="{{b_img.image.url}}" class="w-100" alt=""></td>
+                                            <td><a href="{% url 'updateimage' b_img.id %}" class="submitBtn my-1">Update</a></td>
+                                        </tr>
+                                    {% endfor %}
+                                    {% else %}
+                                    <td>No images to show</td>
+                                {% endif %}
+                            </table>
                         </div>
                         <div class="preview_title mt-5">
                             <table class="w-100">

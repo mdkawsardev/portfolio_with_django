@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Dashboard | UpdateImage{% endblock title %}
+{% block body %}
+    <div class="container">
+        <form class="common_form mt-lg-5" action="/insertUpdatedImg/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="b_input">
+            <label for="titleName">Select a new image:</label>
+            {% if update %}
+                {% for img in update %}
+                    <input type="hidden" name="id" value="{{img.id}}">
+                    <input type="file" id="titleName" name="update_img">
+                {% endfor %}
+            {% endif %}
+        </div>
+        <button type="submit" class="submitBtn">Save</button>
+    </form>
+{% endblock body %}

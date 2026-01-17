@@ -64,6 +64,7 @@ def banner(request):
     else:
         banner_data = {
         'banner_tag': SelfTag.objects.all(),
+        'banner_img': BannerImage.objects.all()
         }
         if request.method == "POST":
             banner_tag = request.POST.get('title_name')
@@ -140,6 +141,21 @@ def updateItem(request, pk):
         'update': SelfTag.objects.filter(id=pk).all()
     }
     return render(request, 'update.html', update_data)
+
+def updateimage(request, pk):
+    update_img = {
+        'update': BannerImage.objects.filter(id=pk).all()
+    }
+    return render(request, 'updateimage.html', update_img)
+
+def insertUpdatedImg(request):
+    if request.method == "POST":
+        new_img = request.FILES.get('update_img')
+        id = request.POST.get('id')
+        insert_img = BannerImage.objects.filter(id=id)
+        insert_img.update(image=new_img)
+        messages.success(request, 'Image has been updated successfully!')
+        return redirect('banner')
 
 def deleteItem(request, pk):
         delete_tag = SelfTag.objects.filter(id=pk)
