@@ -148,14 +148,14 @@ def updateimage(request, pk):
     }
     return render(request, 'updateimage.html', update_img)
 
-def insertUpdatedImg(request):
+def insert_updated_image(request):
     if request.method == "POST":
-        new_img = request.FILES.get('update_img')
         id = request.POST.get('id')
+        new_img = request.FILES.get('update_img')
         insert_img = BannerImage.objects.filter(id=id)
         insert_img.update(image=new_img)
         messages.success(request, 'Image has been updated successfully!')
-        return redirect('banner')
+        return redirect('/banner')
 
 def deleteItem(request, pk):
         delete_tag = SelfTag.objects.filter(id=pk)

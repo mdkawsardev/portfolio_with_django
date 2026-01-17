@@ -2,7 +2,7 @@
 {% block title %}Dashboard | UpdateImage{% endblock title %}
 {% block body %}
     <div class="container">
-        <form class="common_form mt-lg-5" action="/insertUpdatedImg/" method="post" enctype="multipart/form-data">
+        <form class="common_form mt-lg-5" action="/insert_updated_image/" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="b_input">
             <label for="titleName">Select a new image:</label>
