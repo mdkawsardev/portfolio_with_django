@@ -75,8 +75,8 @@
                                 <tr>
                                     <td>{{my_tag.self_tags}}</td>
                                     <td class="d-flex gap-2 justify-content-center">
-                                        <a href="{% url 'delete' my_tag.id %}" class="submitBtn mt-1">Delete</a>
-                                        <a href="{% url 'update' my_tag.id %}" class="submitBtn mt-1">Update</a>
+                                        <a href="{% url 'delete' my_tag.id %}" class="submitBtn text-decoration-none mt-1">Delete</a>
+                                        <a href="{% url 'update' my_tag.id %}" class="submitBtn text-decoration-none mt-1">Update</a>
                                     </td>
                                 </tr>
                                     {% endfor %}

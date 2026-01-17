@@ -47,7 +47,7 @@
                         <td>{{contact.name}}</td>
                         <td>{{contact.email}}</td>
                         <td>{{contact.phone}}</td>
-                        <td><a href="{% url 'deletecontact' contact.id %}" class="editBtn">Delete</a></td>
+                        <td><a href="{% url 'deletecontact' contact.id %}" class="submitBtn text-decoration-none my-1 d-inline-block">Delete</a></td>
                     </tr>
                         {% endfor %}
                     {% else %}
