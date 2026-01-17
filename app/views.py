@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import Contact, AboutSection, ContactEmail, ContactNumber, FooterText, SkillSection, ServiceSection, ClientSection, BannerImage, PortfolioSection, SocialMedia, SkillTitle, ServiceTitle, PortfolioTitle, ClientTitle, ContactTitle, SelfTag
@@ -66,6 +66,13 @@ def banner(request):
         'banner_tag': SelfTag.objects.all(),
         'banner_img': BannerImage.objects.all()
         }
+        if request.method == "POST":
+            image = request.FILES.get('image')
+            BannerImage.objects.create(
+                image=image
+            )
+            messages.success(request, "Image uploaded successfully!")
+            return redirect('/banner')
         if request.method == "POST":
             banner_tag = request.POST.get('title_name')
             SelfTag.objects.create(self_tags=banner_tag)
@@ -149,13 +156,9 @@ def updateimage(request, pk):
     return render(request, 'updateimage.html', update_img)
 
 def insert_updated_image(request):
-    if request.method == "POST":
-        id = request.POST.get('id')
-        new_img = request.FILES.get('update_img')
-        insert_img = BannerImage.objects.filter(id=id)
-        insert_img.update(image=new_img)
-        messages.success(request, 'Image has been updated successfully!')
-        return redirect('/banner')
+    pass
+    # messages.success(request, 'Image has been updated successfully!')
+    # return redirect('/banner')
 
 def deleteItem(request, pk):
         delete_tag = SelfTag.objects.filter(id=pk)
