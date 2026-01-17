@@ -48,10 +48,10 @@
                         <form class="common_form" action="/banner/" method="post">
                             {% csrf_token %}
                             <div class="b_input">
-                                <label for="titleName">Name Title</label>
+                                <label for="titleName">Enter your tag:</label>
                                 <input type="text" id="titleName" name="title_name">
                             </div>
-                            <button type="submit" name="" class="submitBtn">Add</button>
+                            <button type="submit" class="submitBtn">Add</button>
                         </form>
                     </div>
                     <div class="banner_preview">
@@ -75,16 +75,8 @@
                                 <tr>
                                     <td>{{my_tag.self_tags}}</td>
                                     <td class="d-flex gap-2 justify-content-center">
-                                        <form action="{% url "delete" %}" method="post">
-                                            {% csrf_token %}
-                                            <input type="hidden" value="{{my_tag.id}}" name="id">
-                                            <input type="submit" class="submitBtn mt-1" value="Delete">
-                                        </form>
-                                        <form action="{% url "update" %}" method="post">
-                                            {% csrf_token %}
-                                            <input type="hidden" value="{{my_tag.id}}" name="id">
-                                            <input type="submit" class="submitBtn mt-1" value="Update">
-                                        </form>
+                                        <a href="{% url 'delete' my_tag.id %}" class="submitBtn mt-1">Delete</a>
+                                        <a href="{% url 'update' my_tag.id %}" class="submitBtn mt-1">Update</a>
                                     </td>
                                 </tr>
                                     {% endfor %}

@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 {% block title %}Dashboard | Contact{% endblock title %}
 {% block body %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert position-fixed top-0 w-100 text-center alert-success {{ message.tags }} alert-dismissible fade show" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+{% endif %} 
     <div class="dash_container">
         <div class="dashboard_navbar">
             <div class="dash_title">
@@ -31,32 +39,25 @@
                         <th>Client Name</th>
                         <th>Email</th>
                         <th>Phone</th>
-                        <th>Manage</th>
+                        <th><i class="fa-solid fa-pen"></i></th>
                     </tr>
+                    {% if contacts %}
+                        {% for contact in contacts %}
                     <tr>
-                        <td>imo</td>
-                        <td>imo@gmail.com</td>
-                        <td>xxxxxxxxx</td>
-                        <td><a href="#" class="editBtn">Delete</a></td>
+                        <td>{{contact.name}}</td>
+                        <td>{{contact.email}}</td>
+                        <td>{{contact.phone}}</td>
+                        <td><a href="{% url 'deletecontact' contact.id %}" class="editBtn">Delete</a></td>
                     </tr>
+                        {% endfor %}
+                    {% else %}
                     <tr>
-                        <td>imo</td>
-                        <td>imo@gmail.com</td>
-                        <td>xxxxxxxxx</td>
-                        <td><a href="#" class="editBtn">Delete</a></td>
+                        <td>No name</td>
+                        <td>No email</td>
+                        <td>No phone</td>
+                        <td>No operation</td>
                     </tr>
-                    <tr>
-                        <td>imo</td>
-                        <td>imo@gmail.com</td>
-                        <td>xxxxxxxxx</td>
-                        <td><a href="#" class="editBtn">Delete</a></td>
-                    </tr>
-                    <tr>
-                        <td>imo</td>
-                        <td>imo@gmail.com</td>
-                        <td>xxxxxxxxx</td>
-                        <td><a href="#" class="editBtn">Delete</a></td>
-                    </tr>
+                    {% endif %}
                 </table>
             </div>
         </div>

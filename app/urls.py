@@ -4,6 +4,7 @@ from django.conf.urls.static import static
 from . import views
 urlpatterns = [
     path('', views.home, name='home'),
+    path('Clientcontact', views.Clientcontact, name='Clientcontact'),
     path('contact/', views.contact, name='contact'),
     path('loginuser/', views.loginuser, name='loginuser'),
     path('navbar/', views.navbar, name='navbar'),
@@ -16,9 +17,10 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('footer/', views.footer, name='footer'),
     path('logout/', views.logoutuser, name='logout'),
-    path('update/', views.updateItem, name='update'),
-    path('delete/', views.deleteItem, name='delete'),
+    path('update/<int:pk>/', views.updateItem, name='update'),
+    path('delete/<int:pk>/', views.deleteItem, name='delete'),
     path('insert_updated_data/', views.insert_updated_data, name='insert_updated_data'),
+    path('deletecontact/<int:pk>/', views.deleteContacts, name='deletecontact'),
 ]
 
 if settings.DEBUG:

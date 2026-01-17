@@ -37,7 +37,7 @@ def home(request):
     return render(request, 'index.html', all_info)
 
 
-def contact(request):
+def Clientcontact(request):
     if request.method == "POST":
         name = request.POST.get('name')
         email = request.POST.get('email')
@@ -48,7 +48,7 @@ def contact(request):
             phone=phone
         )
         messages.success(request, "Thanks! Your information has been sent.")
-    return render(request, 'index.html')
+    return redirect('/')
 
 
 def navbar(request):
@@ -111,7 +111,10 @@ def contact(request):
     if not request.user.is_authenticated:
         return redirect('/')
     else:
-        return render(request, 'dashboard/contact.html')
+        context = {
+            'contacts': Contact.objects.all()
+        }
+        return render(request, 'dashboard/contact.html', context)
 
 
 def footer(request):
@@ -132,27 +135,30 @@ def logoutuser(request):
     return redirect('/')
 
 
-def updateItem(request):
-    if request.method == "POST":
-        id = request.POST.get('id')
-        
-        update_data = {
-            'update': SelfTag.objects.filter(id=id).all()
-        }
-        return render(request, 'update.html', update_data)
-    return render(request, 'update.html')
+def updateItem(request, pk):
+    update_data = {
+        'update': SelfTag.objects.filter(id=pk).all()
+    }
+    return render(request, 'update.html', update_data)
 
-def deleteItem(request):
-    if request.method == "POST":
-        id = request.POST.get('id')
-        SelfTag.objects.filter(id=id).delete()
+def deleteItem(request, pk):
+        delete_tag = SelfTag.objects.filter(id=pk)
+        delete_tag.delete()
         messages.success(request, "Tag deleted successfully!")
         return redirect('/banner')
-    
+
+def deleteContacts(request, pk):
+    deleteContact = Contact.objects.filter(id=pk)
+    deleteContact.delete()
+    messages.success(request, 'Client information has deleted successfully!')
+    return redirect('contact')
+
+
 def insert_updated_data(request):
     if request.method == "POST":
         id = request.POST.get('id')
         tag_name = request.POST.get('tag_name')
-        SelfTag.objects.filter(id=id).update(self_tags=tag_name)
+        selected_data = SelfTag.objects.filter(id=id)
+        selected_data.update(self_tags=tag_name)
         messages.success(request, "Tag updated successfully!")
         return redirect('/banner')
