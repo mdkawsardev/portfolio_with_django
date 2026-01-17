@@ -2745,7 +2745,7 @@ label {
     font-size: 14px;
     border: 1px solid var(--link);
     border-radius: .4rem;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 /*                                      !About page                                  */
 /*                                      !Portfolio page                                  */
