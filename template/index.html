@@ -177,6 +177,8 @@
                             {% for about in Abouts %}
                                 <h2 class="mb-lg-0">{{about.title}}</h2>
                             {% endfor %}
+                            {% else %}
+                            <h2 class="mb-lg-0">No title</h2>
                         {% endif %}
                     </div>
                 </div>
