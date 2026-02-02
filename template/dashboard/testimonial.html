@@ -26,6 +26,18 @@
         <div class="d_content">
             <div class="container">
                 <h2>Testimonial Details</h2>
+                <form action="{% url 'Clientcontact'%}" method="post">
+                    {% csrf_token %}
+                    <label for="Name">Name:</label>
+                    <input type="text" id="Name" name="name" required>
+                    <label for="Email">Email:</label>
+                    <input type="email" id="Email" name="email" required>
+                    <label for="Phn">Phone:</label>
+                    <input type="number" id="Phn" name="phone" required>
+                    <div class="contactBtn">
+                        <button type="submit" class="actionBtn">Send</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
