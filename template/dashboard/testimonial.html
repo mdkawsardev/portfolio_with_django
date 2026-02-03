@@ -41,7 +41,7 @@
             <a href="{% url 'logout' %}">Logout</a>
         </div>
     </div>
-    <div class="d_content">
+    <div class="d_content d-flex">
         <div class="container">
             <h2>Testimonial Details</h2>
             <form class="common_form mt-5" action="{% url 'testimonial'%}" method="post" enctype="multipart/form-data">
@@ -68,6 +68,16 @@
                 </div>
             </form>
         </div>
+    </div>
+    <div class="client_table">
+        <table class="w-100">
+        <tr>
+            <th>Client Name:</th>
+        </tr>
+        <tr>
+            <td>Nothing</td>
+        </tr>
+    </table>
     </div>
 </div>
 {% endblock body %}
