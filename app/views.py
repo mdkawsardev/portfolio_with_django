@@ -112,6 +112,12 @@ def testimonial(request):
     if not request.user.is_authenticated:
         return redirect('/')
     else:
+        if request.method == "POST":
+            clinet_name = request.POST['name']
+            client_tag = request.POST['t_name']
+            comments = request.POST['comments']
+            client_image = request.FILE['c_im']
+            
         return render(request, 'dashboard/testimonial.html')
 
 
