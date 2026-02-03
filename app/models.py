@@ -90,3 +90,9 @@ class FooterText(models.Model):
     footer_texts = models.TextField()
     def __str__(self):
         return self.footer_texts
+    
+class Testimonial(models.Model):
+    client_name = models.CharField(max_length=100)
+    client_tag = models.CharField(max_length=100)
+    client_comments = models.TextField()
+    client_image = models.ImageField(upload_to='media', default='media/default.png')
