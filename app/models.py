@@ -1,5 +1,5 @@
 from django.db import models
-
+from datetime import datetime
 # Create your models here.
 class BannerImage(models.Model):
     image = models.ImageField(default='default.png', blank=True, upload_to='media')

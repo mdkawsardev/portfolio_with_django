@@ -16,7 +16,7 @@ def home(request):
         'Porfolio_title': PortfolioTitle.objects.all(),
         'Porfolios': PortfolioSection.objects.all(),
         'Client_title': ClientTitle.objects.all(),
-        'ClientReviews': ClientSection.objects.all(),
+        'ClientReviews': ClientSection.objects.all().order_by('-id'),
         'Contact_title': ContactTitle.objects.all(),
         'Contacts': Contact.objects.all(),
         'ContactNumbers': ContactNumber.objects.all(),
@@ -115,13 +115,14 @@ def testimonial(request):
             clinet_name = request.POST['name']
             client_tag = request.POST['t_name']
             comments = request.POST['comments']
-            client_image = request.FILE['c_im']
+            client_image = request.FILES['c_im']
             ClientSection.objects.create(
                 client_name=clinet_name,
                 client_profession=client_tag,
                 client_comments=comments,
                 client_photo=client_image
             )
+            messages.success(request, 'New client added')
         return render(request, 'dashboard/testimonial.html')
 
 
