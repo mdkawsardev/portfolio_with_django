@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import Contact, AboutSection, ContactEmail, ContactNumber, FooterText, SkillSection, ServiceSection, ClientSection, BannerImage, PortfolioSection, SocialMedia, SkillTitle, ServiceTitle, PortfolioTitle, ClientTitle, ContactTitle, SelfTag
-# Create your views here.
 
 
 def home(request):
@@ -117,7 +116,12 @@ def testimonial(request):
             client_tag = request.POST['t_name']
             comments = request.POST['comments']
             client_image = request.FILE['c_im']
-            
+            ClientSection.objects.create(
+                client_name=clinet_name,
+                client_profession=client_tag,
+                client_comments=comments,
+                client_photo=client_image
+            )
         return render(request, 'dashboard/testimonial.html')
 
 

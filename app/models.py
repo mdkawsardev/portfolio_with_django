@@ -58,7 +58,7 @@ class ClientSection(models.Model):
     client_name = models.CharField(max_length=100)
     client_profession = models.CharField(max_length=100)
     client_comments = models.TextField()
-    client_photo = models.ImageField(blank=True, upload_to='media', default='default.png')
+    client_photo = models.ImageField(blank=True, upload_to='media', default='media/default.png')
     def __str__(self):
         return self.client_name
 
@@ -91,8 +91,3 @@ class FooterText(models.Model):
     def __str__(self):
         return self.footer_texts
     
-class Testimonial(models.Model):
-    client_name = models.CharField(max_length=100)
-    client_tag = models.CharField(max_length=100)
-    client_comments = models.TextField()
-    client_image = models.ImageField(upload_to='media', default='media/default.png')
