@@ -123,7 +123,10 @@ def testimonial(request):
                 client_photo=client_image
             )
             messages.success(request, 'New client added')
-        return render(request, 'dashboard/testimonial.html')
+        context = {
+            'information': ClientSection.objects.all().order_by('-id')
+        }
+        return render(request, 'dashboard/testimonial.html', context)
 
 
 def contact(request):
@@ -192,3 +195,8 @@ def insert_updated_data(request):
         selected_data.update(self_tags=tag_name)
         messages.success(request, "Tag updated successfully!")
         return redirect('/banner')
+    
+def delete_review(request, pk):
+    find = ClientSection.objects.filter(id=pk)
+    find.delete()
+    return redirect('/testimonial')

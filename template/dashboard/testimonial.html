@@ -69,15 +69,24 @@
             </form>
         </div>
     </div>
-    <div class="client_table">
-        <table class="w-100">
-        <tr>
-            <th>Client Name:</th>
-        </tr>
-        <tr>
-            <td>Nothing</td>
-        </tr>
-    </table>
+    <div class="client_table pe-5">
+        <table class="w-100 ">
+            <tr>
+                <th>Client Name:</th>
+            </tr>
+            {% if information %}
+                {% for info in information %}
+                    <tr>
+                        <td><a href="">{{info.client_name}}</a></td>
+                        <td><a href="{% url 'delete_review' info.id %}" class="text-decoration-none">Remove</a></td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td>No Reviews</td>
+                </tr>
+            {% endif %}
+        </table>
     </div>
 </div>
 {% endblock body %}
