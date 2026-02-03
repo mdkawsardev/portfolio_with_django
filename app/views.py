@@ -198,5 +198,7 @@ def insert_updated_data(request):
     
 def delete_review(request, pk):
     find = ClientSection.objects.filter(id=pk)
-    find.delete()
+    delete_client = find.delete()
+    if delete_client:
+        messages.success(request, 'Client removed!')
     return redirect('/testimonial')
