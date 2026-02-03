@@ -26,7 +26,7 @@
         <div class="d_content">
             <div class="container">
                 <h2>Testimonial Details</h2>
-                <form class="common_form mt-5" action="{% url 'Clientcontact'%}" method="post" enctype="multipart/form-data">
+                <form class="common_form mt-5" action="{% url 'testimonial'%}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="b_input">
                     <label for="Name">Client's Name:</label>
@@ -38,11 +38,11 @@
                     </div>
                     <div class="b_input">
                     <label for="com">Comments:</label>
-                    <textarea name="comments" class="form-control bg-transparent text-light" id="com"></textarea>
+                    <textarea name="comments" class="form-control bg-transparent text-light" id="com" required></textarea>
                     </div>
                     <div class="b_input">
                     <label for="c_im">Client's image</label>
-                    <input type="file" name="c_im" id="c_im">
+                    <input type="file" name="c_im" id="c_im" required>
                     </div>
                     <div class="contactBtn">
                         <button type="submit" class="submitBtn">Add</button>
