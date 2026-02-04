@@ -27,7 +27,7 @@
             <div class="container">
                 <h2>Portfolio Details</h2>
                 <div class="banner_form mt-5">
-                    <form class="common_form" action="#" method="post">
+                    <form class="common_form" action="{% url 'insert_data' %}" method="post">
                         <div class="b_input">
                             <label for="portfolio">Portfolio Title</label>
                             <input type="text" id="portfolio" name="">
@@ -47,7 +47,7 @@
                             <label for="link">Category Link</label>
                             <input type="text" id="link" name="link" placeholder="https://example.com">
                         </div>
-                        <button type="submit" name="" class="submitBtn">Add</button>
+                        <button type="submit" class="submitBtn">Add</button>
                     </form>
                 </div>
             </div>

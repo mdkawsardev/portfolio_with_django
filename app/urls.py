@@ -24,6 +24,7 @@ urlpatterns = [
     path('insert_updated_data/', views.insert_updated_data, name='insert_updated_data'),
     path('deletecontact/<int:pk>/', views.deleteContacts, name='deletecontact'),
     path('delete_review/<int:pk>/', views.delete_review, name='delete_review'),
+    path('insert_data', views.insert_data, name='insert_data'),
 ]
 
 if settings.DEBUG:
