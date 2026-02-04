@@ -202,3 +202,7 @@ def delete_review(request, pk):
     if delete_client:
         messages.success(request, 'Client removed!')
     return redirect('/testimonial')
+
+def insert_data(request):
+    if request.method == "POST":
+        pass
