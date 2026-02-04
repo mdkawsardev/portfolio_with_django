@@ -18,7 +18,9 @@
     --sub-link: #424769;
     --white: #FFFFFF;
 }
-
+.link_color {
+    color: var(--link);
+}
 body {
     font-family: var(--primary-font);
     min-height: 100vh;

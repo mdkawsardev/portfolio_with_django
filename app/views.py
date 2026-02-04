@@ -104,7 +104,10 @@ def portfolio(request):
     if not request.user.is_authenticated:
         return redirect('/')
     else:
-        return render(request, 'dashboard/portfolio.html')
+        context = {
+            'all_data': PortfolioSection.objects.all()
+        }
+        return render(request, 'dashboard/portfolio.html', context)
 
 
 def testimonial(request):
@@ -205,4 +208,20 @@ def delete_review(request, pk):
 
 def insert_data(request):
     if request.method == "POST":
-        pass
+        category = request.POST['category']
+        category_image = request.FILES['c_image']
+        category_link = request.POST['link']
+        PortfolioSection.objects.create(
+            filter_keyword=category,
+            project_url=category_link,
+            project_image=category_image
+        )
+        messages.success(request, 'New category added successfully!')
+    return redirect('/portfolio')
+
+def delete_portfolio(request, pk):
+    get_item = PortfolioSection.objects.filter(id=pk)
+    remove = get_item.delete()
+    if remove:
+        messages.success(request, 'Category deleted successfully!')
+        return redirect('/portfolio')

@@ -78,7 +78,7 @@
                 {% for info in information %}
                     <tr>
                         <td><a href="">{{info.client_name}}</a></td>
-                        <td><a href="{% url 'delete_review' info.id %}" class="text-decoration-none">Remove</a></td>
+                        <td><a href="{% url 'delete_review' info.id %}" class="text-decoration-none link_color">Remove</a></td>
                     </tr>
                 {% endfor %}
             {% else %}

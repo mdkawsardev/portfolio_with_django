@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 {% block title %}Dashboard | Portfolio{% endblock title %}
 {% block body %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert position-fixed top-0 w-100 text-center alert-success {{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>{{ message }}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+{% endif %} 
     <div class="dash_container">
         <div class="dashboard_navbar">
             <div class="dash_title">
@@ -28,15 +36,17 @@
                 <h2>Portfolio Details</h2>
                 <div class="banner_form mt-5">
                     <form class="common_form" action="{% url 'insert_data' %}" method="post">
+                        {% csrf_token %}
                         <div class="b_input">
                             <label for="portfolio">Portfolio Title</label>
                             <input type="text" id="portfolio" name="">
                         </div>
                         <button type="submit" class="submitBtn mb-lg-5">Add</button>
                     </form>
-                    <form class="common_form" action="#" method="post" enctype="multipart/form-data">
+                    <form class="common_form" action="{% url 'insert_data' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
                         <div class="b_input">
-                            <label for="category">Category Name</label>
+                            <label for="category">Choose a categroy = frontend, backend, react, wordpress</label>
                             <input type="text" id="category" name="category">
                         </div>
                         <div class="b_input">
@@ -54,11 +64,19 @@
             <table>
                 <tbody>
                     <tr>
-                        <th>Portfolio name</th>
+                        <th>Length</th>
+                        <th>Category name</th>
+                        <th>Operation</th>
                     </tr>
-                    <tr>
-                        <td>Something</td>
-                    </tr>
+                    {% if all_data %}
+                        {% for all in all_data %}
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{all.filter_keyword}}</td>
+                                <td><a href="{% url 'delete_portfolio' all.id %}" class="text-decoration-none link_color">Remove</a></td>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
                 </tbody>
             </table>
         </div>
