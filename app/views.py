@@ -97,7 +97,10 @@ def service(request):
     if not request.user.is_authenticated:
         return redirect('/')
     else:
-        return render(request, 'dashboard/service.html')
+        context = {
+            'all_data': ServiceSection.objects.all()
+        }
+        return render(request, 'dashboard/service.html', context)
 
 
 def portfolio(request):
@@ -225,3 +228,13 @@ def delete_portfolio(request, pk):
     if remove:
         messages.success(request, 'Category deleted successfully!')
         return redirect('/portfolio')
+    
+def delete_service(request, pk):
+    get_item = ServiceSection.objects.filter(id=pk)
+    remove = get_item.delete()
+    if remove:
+        messages.success(request, 'Service deleted successfully!')
+        return redirect('/service')
+    
+def add_services(request):
+    pass
