@@ -36,26 +36,27 @@
             <div class="container">
                 <h2>Service Details</h2>
                 <div class="banner_form mt-5">
-                    <form class="common_form" action="{% url 'add_services' %}">
+                    <form class="common_form" action="{% url 'add_services_title' %}" method="post">
+                        {% csrf_token %}
                         <div class="b_input">
                             <label for="service">Service Title</label>
-                            <input type="text" id="service" name="">
+                            <input type="text" id="service" name="s_title">
                         </div>
-                        <button type="submit" name="" class="submitBtn mb-lg-5">Add</button>
+                        <button type="submit" name="" class="submitBtn mb-lg-5">Update</button>
                     </form>
-                    <form class="common_form" action="{% url 'add_services' %}">
-                        
+                    <form class="common_form" action="{% url 'add_services' %}" method="post">
+                        {% csrf_token %}
                         <div class="b_input">
                             <label for="s_icon">Service Icon</label>
-                            <input type="text" id="s_icon" name="">
+                            <input type="text" id="s_icon" name="s_icon">
                         </div>
                         <div class="b_input">
                             <label for="s_name">Service Name</label>
-                            <input type="text" id="s_name" name="">
+                            <input type="text" id="s_name" name="s_name">
                         </div>
                         <div class="b_input">
                             <label for="details">Service Details</label>
-                            <textarea name="" id="details" class="textArea"></textarea>
+                            <textarea name="details" id="details" class="textArea"></textarea>
                         </div>
                         <button type="submit" name="" class="submitBtn">Add</button>
                     </form>

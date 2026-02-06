@@ -28,6 +28,7 @@ urlpatterns = [
     path('<int:pk>/delete_portfolio/', views.delete_portfolio, name='delete_portfolio'),
     path('<int:pk>/delete_service/', views.delete_service, name='delete_service'),
     path('add_services/', views.add_services, name='add_services'),
+    path('add_services_title/', views.add_services_title, name='add_services_title'),
 ]
 
 if settings.DEBUG:

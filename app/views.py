@@ -237,4 +237,23 @@ def delete_service(request, pk):
         return redirect('/service')
     
 def add_services(request):
-    pass
+    if request.method == "POST":
+        service_icon = request.POST['s_icon']
+        service_name = request.POST['s_name']
+        service_desc = request.POST['details']
+        ServiceSection.objects.create(
+            service_icon=service_icon,
+            service_name=service_name,
+            service_description=service_desc
+        )
+        messages.success(request, 'Service added successfully!')
+    return redirect('/service')
+
+def add_services_title(request):
+    if request.method == "POST":
+        service_title = request.POST['s_title']
+        ServiceTitle.objects.update(
+            title=service_title
+        )
+        messages.success(request, 'Service title updated successfully!')
+    return redirect('/service')
