@@ -30,6 +30,9 @@ urlpatterns = [
     path('<int:pk>/delete_service/', views.delete_service, name='delete_service'),
     path('add_services/', views.add_services, name='add_services'),
     path('add_services_title/', views.add_services_title, name='add_services_title'),
+    path('add_skills/', views.add_skills, name='add_skills'),
+    path('update_skill_title/', views.update_skill_title, name='update_skill_title'),
+    path('<int:pk>/delete_skill/', views.delete_skill, name='delete_skill'),
 ]
 
 if settings.DEBUG:

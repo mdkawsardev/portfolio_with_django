@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 {% block title %}Dashboard | Skill{% endblock title %}
 {% block body %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert position-fixed top-0 w-100 text-center alert-success {{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>{{ message }}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+{% endif %} 
     <div class="dash_container">
         <div class="dashboard_navbar">
             <div class="dash_title">
@@ -23,27 +31,49 @@
                 <a href="{% url 'logout' %}" class="link_color">Logout</a>
             </div>
         </div>
-        <div class="d_content">
+        <div class="d_content d-flex">
             <div class="container">
                 <h2>Skill Details</h2>
                 <div class="banner_form mt-5">
-                    <form class="common_form" action="#">
+                    <form class="common_form" action="{% url 'update_skill_title' %}" method="post">
+                        {% csrf_token %}
                         <div class="b_input">
                             <label for="skill">Skill Title</label>
-                            <input type="text" id="skill" name="">
+                            <input type="text" id="skill" name="skill_title">
                         </div>
+                        <button type="submit" class="submitBtn mb-lg-5">Update</button>
+                    </form>
+                    <form class="common_form" action="{% url 'add_skills' %}" method="post">
+                        {% csrf_token %}
                         <div class="b_input">
                             <label for="s_name">Name of Skills</label>
-                            <input type="text" id="s_name" name="">
+                            <input type="text" id="s_name" name="s_name">
                         </div>
                         <div class="b_input">
                             <label for="percent">Percent</label>
-                            <input type="number" id="percent" name="">
+                            <input type="number" id="percent" name="percent">
                         </div>
-                        <button type="submit" name="" class="submitBtn">Add</button>
+                        <button type="submit" class="submitBtn">Add</button>
                     </form>
                 </div>
             </div>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Skill_Name</th>
+                        <th>Percentage</th>
+                    </tr>
+                    {% if all_data %}
+                        {% for all in all_data %}
+                            <tr>
+                                <td>{{all.range_text}}</td>
+                                <td>{{all.range_percentage}}%</td>
+                                <td><a href="{% url 'delete_skill' all.id %}" class="text-decoration-none link_color">Remove</a></td>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
         </div>
     </div>
 {% endblock body %}

@@ -90,7 +90,10 @@ def skill(request):
     if not request.user.is_authenticated:
         return redirect('/')
     else:
-        return render(request, 'dashboard/skill.html')
+        context = {
+            'all_data': SkillSection.objects.all()
+        }
+        return render(request, 'dashboard/skill.html', context)
 
 
 def service(request):
@@ -266,3 +269,30 @@ def add_services_title(request):
         )
         messages.success(request, 'Service title updated successfully!')
     return redirect('/service')
+
+def add_skills(request):
+    if request.method == "POST":
+        range_text = request.POST['s_name']
+        range_percentage = request.POST['percent']
+        SkillSection.objects.create(
+            range_text=range_text,
+            range_percentage=range_percentage
+        )
+        messages.success(request, "New skill has been added successfully!")
+    return redirect('/skill')
+
+def update_skill_title(request):
+    if request.method == "POST":
+        title = request.POST['skill_title']
+        SkillTitle.objects.update(
+            title=title
+        )
+        messages.success(request, "Title updated successfully!")
+    return redirect('/skill')
+
+def delete_skill(request, pk):
+    get_item = SkillSection.objects.filter(id=pk)
+    remove = get_item.delete()
+    if remove:
+        messages.success(request, 'Skill deleted successfully!')
+        return redirect('/skill')
