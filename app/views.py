@@ -30,6 +30,7 @@ def home(request):
         user = authenticate(request, username=userName, password=password)
         if user is not None:
             login(request, user)
+            messages.success(request, f"Welcome, {userName}. You've logged in")
             return redirect('/navbar')
         else:
             return render(request, 'loginuser.html')
@@ -163,6 +164,7 @@ def loginuser(request):
 
 def logoutuser(request):
     logout(request)
+    messages.success(request, "You've logged out")
     return redirect('/')
 
 
