@@ -222,6 +222,15 @@ def insert_data(request):
         messages.success(request, 'New category added successfully!')
     return redirect('/portfolio')
 
+def update_portfolio_title(request):
+    if request.method == "POST":
+        portfolio_title = request.POST['portfolio_title']
+        PortfolioTitle.objects.update(
+            title=portfolio_title
+        )
+        messages.success(request, "Title updated successfully!")
+    return redirect('/portfolio')
+
 def delete_portfolio(request, pk):
     get_item = PortfolioSection.objects.filter(id=pk)
     remove = get_item.delete()
