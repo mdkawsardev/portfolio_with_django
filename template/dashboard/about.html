@@ -2,6 +2,14 @@
 {% block title %}Dashboard | About{% endblock title %}
 
 {% block body %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert position-fixed top-0 w-100 text-center alert-success {{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>{{ message }}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+{% endif %} 
 <div class="dash_container">
     <div class="dashboard_navbar">
         <div class="dash_title">
@@ -37,55 +45,60 @@
     <div class="d_content d-flex">
         <div class="container">
             <h2>About Details</h2>
-            <form class="common_form mt-5 d-flex w-100 gap-3" action="#" enctype="multipart/form-data">
+            <form class="common_form mt-5 d-flex w-100 gap-3" action="{% url 'about' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
                 {% if all_data %}
                     {% for all in all_data %}
                     <div class="w-50">
                     <div class="b_input d-flex">
                         <label for="abTitle" class="mx-2">About Title</label>
-                        <input type="text" id="abTitle" name="" value="{{all.title}}">
+                        <input type="text" id="abTitle" name="about_title" value="{{all.title}}">
                         <label for="greeting" class="mx-2">Greeting</label>
-                        <input type="text" id="greeting" name="" value="{{all.greeting}}">
+                        <input type="text" id="greeting" name="greeting" value="{{all.greeting}}">
                     </div>
                     <div class="b_input">
                         <label for="details">Details</label>
-                        <textarea name="" id="details" class="textArea">{{all.description}}</textarea>
+                        <textarea name="details" id="details" class="textArea">{{all.description}}</textarea>
                     </div>
                     <div class="b_input d-flex">
                         <label for="btn1Text" class="mx-2">Button 1 Text</label>
-                        <input type="text" id="btn1Text" name="" value="{{all.btn1}}">
+                        <input type="text" id="btn1Text" name="btn1Text" value="{{all.btn1}}">
                         <label for="btn2Text" class="mx-2">Button 2 Text</label>
-                        <input type="text" id="btn2Text" name="" value="{{all.btn2}}">
+                        <input type="text" id="btn2Text" name="btn2Text" value="{{all.btn2}}">
                     </div>
                     <div class="b_input">
-                        <label for="btnLink">Button 1 Link</label>
-                        <input type="text" id="btn1" name="" value="{{all.btn1_Link}}" placeholder="https://example.com">
+                        <label for="btn1Link">Button 1 Link</label>
+                        <input type="text" id="btn1Link" name="btn1Link" value="{{all.btn1_Link}}" placeholder="https://example.com">
                     </div>
                     <div class="b_input">
-                        <label for="btnLink">Button 2 Link</label>
-                        <input type="text" id="btn2" name="" value="{{all.btn2_Link}}" placeholder="https://example.com">
+                        <label for="btn2Link">Button 2 Link</label>
+                        <input type="text" id="btn2Link" name="btn2Link" value="{{all.btn2_Link}}" placeholder="https://example.com">
                     </div>
                 </div>
                 <div class="w-50">
                     <div class="b_input">
                         <label for="pic">Picture</label>
-                        <input type="file" id="pic" name="">
+                        <input type="file" id="pic" name="profile">
+                    </div>
+                    <div class="b_input">
+                        <label for="profile_text">Profile Text</label>
+                        <textarea name="profile_text" id="profile_text" class="textArea">{{all.profile_text}}</textarea>
                     </div>
                     <div class="b_input d-flex">
                         <label for="countDownText1" class="mx-2">Text1</label>
-                        <input type="text" id="countDownText1" name="" value="{{all.point1_text}}">
+                        <input type="text" id="countDownText1" name="countDownText1" value="{{all.point1_text}}">
                         <label for="countDownText2" class="mx-2">Text2</label>
-                        <input type="text" id="countDownText2" name="" value="{{all.point2_text}}">
+                        <input type="text" id="countDownText2" name="countDownText2" value="{{all.point2_text}}">
                         <label for="countDownText3" class="mx-2">Text3</label>
-                        <input type="text" id="countDownText3" name="" value="{{all.point3_text}}">
+                        <input type="text" id="countDownText3" name="countDownText3" value="{{all.point3_text}}">
                     </div>
                     <div class="b_input d-flex">
-                        <label for="countDown" class="mx-2">Number1</label>
-                        <input type="text" id="countDown" name="" value="{{all.point1_number}}">
-                        <label for="countDown" class="mx-2">Number2</label>
-                        <input type="text" id="countDown" name="" value="{{all.point2_number}}">
-                        <label for="countDown" class="mx-2">Number3</label>
-                        <input type="text" id="countDown" name="" value="{{all.point3_number}}">
+                        <label for="count1Down" class="mx-2">Number1</label>
+                        <input type="text" id="count1Down" name="count1Down" value="{{all.point1_number}}">
+                        <label for="count2Down" class="mx-2">Number2</label>
+                        <input type="text" id="count2Down" name="count2Down" value="{{all.point2_number}}">
+                        <label for="count3Down" class="mx-2">Number3</label>
+                        <input type="text" id="count3Down" name="count3Down" value="{{all.point3_number}}">
                     </div>
                     <div class="d-flex justify-content-end align-items-end">
                         <button type="submit" name="" class="submitBtn">Save</button>

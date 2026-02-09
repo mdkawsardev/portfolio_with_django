@@ -84,6 +84,40 @@ def about(request):
     if not request.user.is_authenticated:
         return redirect('/')
     else:
+        if request.method == "POST":
+            about_title = request.POST['about_title']
+            greeting = request.POST['greeting']
+            details = request.POST['details']
+            profile_text = request.POST['profile_text']
+            btn1Text = request.POST['btn1Text']
+            btn2Text = request.POST['btn2Text']
+            btn1Link = request.POST['btn1Link']
+            btn2Link = request.POST['btn2Link']
+            countDownText1 = request.POST['countDownText1']
+            countDownText2 = request.POST['countDownText2']
+            countDownText3 = request.POST['countDownText3']
+            count1Down = request.POST['count1Down']
+            count2Down = request.POST['count2Down']
+            count3Down = request.POST['count3Down']
+            profile = request.FILES['profile']
+            AboutSection.objects.update(
+                title=about_title,
+                greeting=greeting,
+                description=details,
+                profile_image=profile,
+                profile_text=profile_text,
+                btn1=btn1Text,
+                btn1_Link=btn1Link,
+                btn2=btn2Text,
+                btn2_Link=btn2Link,
+                point1_number=count1Down,
+                point1_text=countDownText1,
+                point2_number=count2Down,
+                point2_text=countDownText2,
+                point3_number=count3Down,
+                point3_text=countDownText3
+            )
+            messages.success(request, "All Information have been updated!")
         context = {
             'all_data': AboutSection.objects.all()
         }

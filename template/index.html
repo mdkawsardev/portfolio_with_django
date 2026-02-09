@@ -215,8 +215,8 @@
                         <div class="buttons">
                             {% if Abouts %}
                             {% for About in Abouts %}
-                                <a href="{% static "media/documents/updatedCvofKawsar.pdf"%}" target="_blank" class="actionBtn">{{About.btn1}}</a>
-                                <a href="{% static "media/documents/certificateOfWebDev.pdf"%}" target="_blank"
+                                <a href="{{About.btn1Link}}" target="_blank" class="actionBtn">{{About.btn1}}</a>
+                                <a href="{{About.btn2Link}}" target="_blank"
                                     class="actionBtn">{{About.btn2}}</a>
                             {% endfor %}
                         {% endif %}
