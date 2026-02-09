@@ -84,7 +84,10 @@ def about(request):
     if not request.user.is_authenticated:
         return redirect('/')
     else:
-        return render(request, 'dashboard/about.html')
+        context = {
+            'all_data': AboutSection.objects.all()
+        }
+        return render(request, 'dashboard/about.html', context)
 
 
 def skill(request):

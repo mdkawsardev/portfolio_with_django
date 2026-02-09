@@ -2681,6 +2681,9 @@ body {
 }
 .common_form {
     width: 500px;
+    & label {
+        color: var(--link);
+    }
 }
 .b_input {
     margin-bottom: 20px;
