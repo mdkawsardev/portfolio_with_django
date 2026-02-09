@@ -2,64 +2,95 @@
 {% block title %}Dashboard | About{% endblock title %}
 
 {% block body %}
-    <div class="dash_container">
-        <div class="dashboard_navbar">
-            <div class="dash_title">
-                <h1 class="mb-0">Dashboard</h1>
-            </div>
-            <h5 class="website"><a href="/" target="_blank">Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a></h5>
-            <ul class="p-0">
-                <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'navbar' %}">Navbar</a></li>
-                <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'banner' %}">Banner</a></li>
-                <li class="text-center list-unstyled"><a class="text-decoration-none d_link d_active" href="{% url 'about' %}">About</a></li>
-                <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'skill' %}">Skills</a></li>
-                <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'service' %}">Services</a></li>
-                <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'portfolio' %}">Portfolio</a></li>
-                <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'testimonial' %}">Testimonial</a>
-                </li>
-                <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'contact' %}">Contact</a></li>
-                <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'footer' %}">Footer</a></li>
-            </ul>
-            <div class="text-center">
-                <a href="{% url 'logout' %}" class="link_color">Logout</a>
-            </div>
+<div class="dash_container">
+    <div class="dashboard_navbar">
+        <div class="dash_title">
+            <h1 class="mb-0">Dashboard</h1>
         </div>
-        <div class="d_content">
-            <div class="container">
-                <h2>About Details</h2>
-                <form class="common_form mt-5" action="#">
-                    <div class="b_input">
-                        <label for="abTitle">About Title</label>
+        <h5 class="website"><a href="/" target="_blank">Website <i
+                    class="fa-solid fa-arrow-up-right-from-square"></i></a></h5>
+        <ul class="p-0">
+            <li class="text-center list-unstyled"><a class="text-decoration-none d_link"
+                    href="{% url 'navbar' %}">Navbar</a></li>
+            <li class="text-center list-unstyled"><a class="text-decoration-none d_link"
+                    href="{% url 'banner' %}">Banner</a></li>
+            <li class="text-center list-unstyled"><a class="text-decoration-none d_link d_active"
+                    href="{% url 'about' %}">About</a></li>
+            <li class="text-center list-unstyled"><a class="text-decoration-none d_link"
+                    href="{% url 'skill' %}">Skills</a></li>
+            <li class="text-center list-unstyled"><a class="text-decoration-none d_link"
+                    href="{% url 'service' %}">Services</a></li>
+            <li class="text-center list-unstyled"><a class="text-decoration-none d_link"
+                    href="{% url 'portfolio' %}">Portfolio</a></li>
+            <li class="text-center list-unstyled"><a class="text-decoration-none d_link"
+                    href="{% url 'testimonial' %}">Testimonial</a>
+            </li>
+            <li class="text-center list-unstyled"><a class="text-decoration-none d_link"
+                    href="{% url 'contact' %}">Contact</a></li>
+            <li class="text-center list-unstyled"><a class="text-decoration-none d_link"
+                    href="{% url 'footer' %}">Footer</a></li>
+        </ul>
+        <div class="text-center">
+            <a href="{% url 'logout' %}" class="link_color">Logout</a>
+        </div>
+    </div>
+    <div class="d_content d-flex">
+        <div class="container">
+            <h2>About Details</h2>
+            <form class="common_form mt-5 d-flex w-100 gap-3" action="#">
+                <div class="w-50">
+                    <div class="b_input d-flex">
+                        <label for="abTitle" class="mx-2">About Title</label>
                         <input type="text" id="abTitle" name="">
+                        <label for="greeting" class="mx-2">Greeting</label>
+                        <input type="text" id="greeting" name="">
                     </div>
                     <div class="b_input">
                         <label for="details">Details</label>
                         <textarea name="" id="details" class="textArea"></textarea>
                     </div>
+                    <div class="b_input d-flex">
+                        <label for="btn1Text" class="mx-2">Button 1 Text</label>
+                        <input type="text" id="btn1Text" name="">
+                        <label for="btn2Text" class="mx-2">Button 2 Text</label>
+                        <input type="text" id="btn2Text" name="">
+                    </div>
                     <div class="b_input">
-                        <label for="btn1">Button 1 Name</label>
-                        <input type="text" class="forBtn" id="btn1" name="">
                         <label for="btnLink">Button 1 Link</label>
                         <input type="text" id="btn1" name="" placeholder="https://example.com">
                     </div>
                     <div class="b_input">
-                        <label for="btn2">Button 2 Name</label>
-                        <input type="text" class="forBtn" id="btn2" name="">
                         <label for="btnLink">Button 2 Link</label>
                         <input type="text" id="btn2" name="" placeholder="https://example.com">
                     </div>
+                </div>
+                <div class="w-50">
                     <div class="b_input">
                         <label for="pic">Picture</label>
                         <input type="file" id="pic" name="">
                     </div>
-                    <div class="b_input">
-                        <label for="countDown">CountDown</label>
+                    <div class="b_input d-flex">
+                        <label for="countDownText1" class="mx-2">Text1</label>
+                        <input type="text" id="countDownText1" name="">
+                        <label for="countDownText2" class="mx-2">Text2</label>
+                        <input type="text" id="countDownText2" name="">
+                        <label for="countDownText3" class="mx-2">Text3</label>
+                        <input type="text" id="countDownText3" name="">
+                    </div>
+                    <div class="b_input d-flex">
+                        <label for="countDown" class="mx-2">Number1</label>
+                        <input type="text" id="countDown" name="">
+                        <label for="countDown" class="mx-2">Number2</label>
+                        <input type="text" id="countDown" name="">
+                        <label for="countDown" class="mx-2">Number3</label>
                         <input type="text" id="countDown" name="">
                     </div>
-
-                    <button type="submit" name="" class="submitBtn">Save</button>
-                </form>
-            </div>
+                    <div class="d-flex justify-content-end align-items-end">
+                        <button type="submit" name="" class="submitBtn">Save</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 {% endblock body %}
