@@ -214,12 +214,12 @@
                         {% endif %}
                         <div class="buttons">
                             {% if Abouts %}
-                            {% for About in Abouts %}
-                                <a href="{{About.btn1Link}}" target="_blank" class="actionBtn">{{About.btn1}}</a>
-                                <a href="{{About.btn2Link}}" target="_blank"
-                                    class="actionBtn">{{About.btn2}}</a>
-                            {% endfor %}
-                        {% endif %}
+                                {% for About in Abouts %}
+                                    <a href="{{About.btn1_Link}}" target="_blank" class="actionBtn">{{About.btn1}}</a>
+                                    <a href="{{About.btn2_Link}}" target="_blank"
+                                        class="actionBtn">{{About.btn2}}</a>
+                                {% endfor %}
+                            {% endif %}
                         </div>
                     </div>
                 </div>
