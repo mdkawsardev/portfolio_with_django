@@ -13,7 +13,7 @@ class AboutSection(models.Model):
     title = models.CharField(max_length=50)
     greeting = models.CharField(max_length=255, default='Hello')
     description = models.TextField()
-    profile_image = models.ImageField(default='default.png', blank=True, upload_to='media')
+    profile_image = models.ImageField(default='media/profile_pic.png', blank=True, upload_to='media')
     profile_text = models.TextField()
     btn1 = models.CharField(max_length=50)
     btn1_Link = models.TextField()

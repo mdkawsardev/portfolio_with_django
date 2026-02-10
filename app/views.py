@@ -99,12 +99,12 @@ def about(request):
             count1Down = request.POST['count1Down']
             count2Down = request.POST['count2Down']
             count3Down = request.POST['count3Down']
-            profile = request.FILES['profile']
+            # profile = request.FILES['profile']
             AboutSection.objects.update(
                 title=about_title,
                 greeting=greeting,
                 description=details,
-                profile_image=profile,
+                # profile_image=profile,
                 profile_text=profile_text,
                 btn1=btn1Text,
                 btn1_Link=btn1Link,
