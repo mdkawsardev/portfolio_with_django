@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import Contact, AboutSection, ContactEmail, ContactNumber, FooterText, SkillSection, ServiceSection, ClientSection, BannerImage, PortfolioSection, SocialMedia, SkillTitle, ServiceTitle, PortfolioTitle, ClientTitle, ContactTitle, SelfTag
-
+import os
 
 def home(request):
     all_info = {
@@ -99,7 +99,13 @@ def about(request):
             count1Down = request.POST['count1Down']
             count2Down = request.POST['count2Down']
             count3Down = request.POST['count3Down']
-            # profile = request.FILES['profile']
+            profile = request.FILES['profile']
+            ob = AboutSection.objects.get(id=1)
+            print(ob)
+            # if len(request.FILES) != 0:
+            #     if len(ob.profile_image) > 0:
+            #         os.remove(ob.profile_image.path)
+            #         ob.profile_image = profile
             AboutSection.objects.update(
                 title=about_title,
                 greeting=greeting,
