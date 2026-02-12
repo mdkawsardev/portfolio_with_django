@@ -100,6 +100,7 @@ def about(request):
             count1Down = request.POST['count1Down']
             count2Down = request.POST['count2Down']
             count3Down = request.POST['count3Down']
+            # for image update 
             if 'profile' in request.FILES:
                 if len(profile.profile_image) > 0:
                     os.remove(profile.profile_image.path)
