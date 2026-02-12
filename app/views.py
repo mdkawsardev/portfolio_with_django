@@ -84,6 +84,7 @@ def about(request):
     if not request.user.is_authenticated:
         return redirect('/')
     else:
+        profile = get_object_or_404(AboutSection, id=1)
         if request.method == "POST":
             about_title = request.POST['about_title']
             greeting = request.POST['greeting']
@@ -99,18 +100,17 @@ def about(request):
             count1Down = request.POST['count1Down']
             count2Down = request.POST['count2Down']
             count3Down = request.POST['count3Down']
-            profile = request.FILES['profile']
-            ob = AboutSection.objects.get(id=1)
-            print(ob)
-            # if len(request.FILES) != 0:
-            #     if len(ob.profile_image) > 0:
-            #         os.remove(ob.profile_image.path)
-            #         ob.profile_image = profile
+            if 'profile' in request.FILES:
+                if len(profile.profile_image) > 0:
+                    os.remove(profile.profile_image.path)
+                else:
+                    messages.error(request, "Path didn't find!")
+                profile.profile_image = request.FILES['profile']
+                profile.save()
             AboutSection.objects.update(
                 title=about_title,
                 greeting=greeting,
                 description=details,
-                # profile_image=profile,
                 profile_text=profile_text,
                 btn1=btn1Text,
                 btn1_Link=btn1Link,

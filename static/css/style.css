@@ -2804,3 +2804,7 @@ td {
 .service_table {
     width: 950px;
 }
+.about_img {
+    width: 100px;
+    height: 150px;
+}
