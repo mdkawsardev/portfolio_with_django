@@ -36,14 +36,6 @@
                 <h2>Banner Details</h2>
                 <div class="banner_details d-flex justify-content-between">
                     <div class="banner_form mt-5">
-                        <form class="common_form" action="/banner/" method="post" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            <div class="b_input">
-                                <label for="im">Banner Image</label>
-                                <input type="file" id="im" name="image">
-                            </div>
-                            <button type="submit" class="submitBtn mb-lg-5">Add</button>
-                        </form>
                         <form class="common_form" action="/banner/" method="post">
                             {% csrf_token %}
                             <div class="b_input">

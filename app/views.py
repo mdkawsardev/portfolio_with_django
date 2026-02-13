@@ -67,13 +67,6 @@ def banner(request):
         'banner_img': BannerImage.objects.all()
         }
         if request.method == "POST":
-            image = request.FILES.get('image')
-            BannerImage.objects.create(
-                image=image
-            )
-            messages.success(request, "Image uploaded successfully!")
-            return redirect('/banner')
-        if request.method == "POST":
             banner_tag = request.POST.get('title_name')
             SelfTag.objects.create(self_tags=banner_tag)
             messages.success(request, "Tag added successfully!")
@@ -243,7 +236,6 @@ def deleteItem(request, pk):
         delete_tag.delete()
         messages.success(request, "Tag deleted successfully!")
         return redirect('/banner')
-
 def deleteContacts(request, pk):
     deleteContact = Contact.objects.filter(id=pk)
     deleteContact.delete()
