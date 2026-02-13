@@ -13,7 +13,7 @@ class AboutSection(models.Model):
     title = models.CharField(max_length=50)
     greeting = models.CharField(max_length=255, default='Hello')
     description = models.TextField()
-    profile_image = models.ImageField(default='media/profile_pic.png', blank=True, upload_to='media')
+    profile_image = models.ImageField(default='media/default.png', blank=True, upload_to='media')
     profile_text = models.TextField()
     btn1 = models.CharField(max_length=50)
     btn1_Link = models.URLField()
@@ -49,7 +49,7 @@ class PortfolioTitle(models.Model):
 class PortfolioSection(models.Model):
     filter_keyword = models.CharField(max_length=100)
     project_url = models.CharField(max_length=255)
-    project_image = models.ImageField(upload_to='media', default='default.png', blank=True)
+    project_image = models.ImageField(upload_to='media', default='media/default.png', blank=True)
 
 class ClientTitle(models.Model):
     title = models.CharField(max_length=100)
@@ -65,7 +65,7 @@ class ClientSection(models.Model):
 class ContactTitle(models.Model):
     title = models.CharField(max_length=100)
     msg = models.CharField(max_length=255, default='Hey, Contact me')
-    contact_image = models.ImageField(blank=True, default='default.png', upload_to='media')
+    contact_image = models.ImageField(blank=True, default='media/default.png', upload_to='media')
 
 class Contact(models.Model):
     name = models.CharField(max_length=255)
