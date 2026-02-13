@@ -48,7 +48,7 @@ class PortfolioTitle(models.Model):
 
 class PortfolioSection(models.Model):
     filter_keyword = models.CharField(max_length=100)
-    project_url = models.CharField(max_length=255)
+    project_url = models.URLField()
     project_image = models.ImageField(upload_to='media', default='media/default.png', blank=True)
 
 class ClientTitle(models.Model):
