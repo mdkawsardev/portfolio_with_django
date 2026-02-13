@@ -190,7 +190,13 @@ def footer(request):
     if not request.user.is_authenticated:
         return redirect('/')
     else:
-        return render(request, 'dashboard/footer.html')
+        context = {
+            'socials': SocialMedia.objects.all(),
+            'numbers': ContactNumber.objects.all(),
+            'emails': ContactEmail.objects.all(),
+            'texts': FooterText.objects.all()
+        }
+        return render(request, 'dashboard/footer.html', context)
 
 
 def loginuser(request):

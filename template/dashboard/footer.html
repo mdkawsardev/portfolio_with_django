@@ -27,6 +27,78 @@
             <div class="container">
                 <h2>Footer Details</h2>
             </div>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Phone</th>
+                        <th><i class="fa-solid fa-pen"></i></th>
+                    </tr>
+                    {% if numbers %}
+                        {% for number in numbers %}
+                            <tr>
+                                <td>{{number.number}}</td>
+                                <td>
+                                    <a href="#" class="submitBtn my-1 d-inline-block">Edit</a>
+                                    <a href="#" class="submitBtn my-1 d-inline-block">Delete</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        {% else %}
+                        <tr>
+                            <td>No numbers added</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Emails</th>
+                        <th><i class="fa-solid fa-pen"></i></th>
+                    </tr>
+                    {% if emails %}
+                        {% for email in emails %}
+                            <tr>
+                                <td>{{email.email}}</td>
+                                <td>
+                                    <a href="#" class="submitBtn my-1 d-inline-block">Edit</a>
+                                    <a href="#" class="submitBtn my-1 d-inline-block">Delete</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        {% else %}
+                        <tr>
+                            <td>No emails added</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Social Medias</th>
+                        <th>Link</th>
+                        <th><i class="fa-solid fa-pen"></i></th>
+                    </tr>
+                    {% if socials %}
+                        {% for social in socials %}
+                            <tr>
+                                <td><i class="{{social.icon}}"></i></td>
+                                <td>{{social.link}}</td>
+                                <td>
+                                    <a href="#" class="submitBtn my-1 d-inline-block">Edit</a>
+                                    <a href="#" class="submitBtn my-1 d-inline-block">Delete</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        {% else %}
+                        <tr>
+                            <td>No social medias added</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+            
         </div>
     </div>
 {% endblock body %}

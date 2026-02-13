@@ -90,4 +90,3 @@ class FooterText(models.Model):
     footer_texts = models.TextField()
     def __str__(self):
         return self.footer_texts
-    
