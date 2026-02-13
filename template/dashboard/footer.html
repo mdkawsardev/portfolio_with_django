@@ -23,82 +23,93 @@
                 <a href="{% url 'logout' %}" class="link_color">Logout</a>
             </div>
         </div>
-        <div class="d_content">
+        <div class="d_content d-flex">
             <div class="container">
                 <h2>Footer Details</h2>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Phone</th>
+                            <th><i class="fa-solid fa-pen"></i></th>
+                        </tr>
+                        {% if numbers %}
+                            {% for number in numbers %}
+                                <tr>
+                                    <td>{{number.number}}</td>
+                                    <td>
+                                        <a href="#" class="submitBtn my-1 d-inline-block">Edit</a>
+                                        <a href="#" class="submitBtn my-1 d-inline-block">Delete</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            {% else %}
+                            <tr>
+                                <td>No numbers added</td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Emails</th>
+                            <th><i class="fa-solid fa-pen"></i></th>
+                        </tr>
+                        {% if emails %}
+                            {% for email in emails %}
+                                <tr>
+                                    <td>{{email.email}}</td>
+                                    <td>
+                                        <a href="#" class="submitBtn my-1 d-inline-block">Edit</a>
+                                        <a href="#" class="submitBtn my-1 d-inline-block">Delete</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            {% else %}
+                            <tr>
+                                <td>No emails added</td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Social Medias</th>
+                            <th>Link</th>
+                            <th><i class="fa-solid fa-pen"></i></th>
+                        </tr>
+                        {% if socials %}
+                            {% for social in socials %}
+                                <tr>
+                                    <td><i class="{{social.icon}}"></i></td>
+                                    <td>{{social.link}}</td>
+                                    <td>
+                                        <a href="#" class="submitBtn my-1 d-inline-block">Edit</a>
+                                        <a href="#" class="submitBtn my-1 d-inline-block">Delete</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            {% else %}
+                            <tr>
+                                <td>No social medias added</td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
             </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <th>Phone</th>
-                        <th><i class="fa-solid fa-pen"></i></th>
-                    </tr>
-                    {% if numbers %}
-                        {% for number in numbers %}
-                            <tr>
-                                <td>{{number.number}}</td>
-                                <td>
-                                    <a href="#" class="submitBtn my-1 d-inline-block">Edit</a>
-                                    <a href="#" class="submitBtn my-1 d-inline-block">Delete</a>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                        {% else %}
-                        <tr>
-                            <td>No numbers added</td>
-                        </tr>
-                    {% endif %}
-                </tbody>
-            </table>
-            <table>
-                <tbody>
-                    <tr>
-                        <th>Emails</th>
-                        <th><i class="fa-solid fa-pen"></i></th>
-                    </tr>
-                    {% if emails %}
-                        {% for email in emails %}
-                            <tr>
-                                <td>{{email.email}}</td>
-                                <td>
-                                    <a href="#" class="submitBtn my-1 d-inline-block">Edit</a>
-                                    <a href="#" class="submitBtn my-1 d-inline-block">Delete</a>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                        {% else %}
-                        <tr>
-                            <td>No emails added</td>
-                        </tr>
-                    {% endif %}
-                </tbody>
-            </table>
-            <table>
-                <tbody>
-                    <tr>
-                        <th>Social Medias</th>
-                        <th>Link</th>
-                        <th><i class="fa-solid fa-pen"></i></th>
-                    </tr>
-                    {% if socials %}
-                        {% for social in socials %}
-                            <tr>
-                                <td><i class="{{social.icon}}"></i></td>
-                                <td>{{social.link}}</td>
-                                <td>
-                                    <a href="#" class="submitBtn my-1 d-inline-block">Edit</a>
-                                    <a href="#" class="submitBtn my-1 d-inline-block">Delete</a>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                        {% else %}
-                        <tr>
-                            <td>No social medias added</td>
-                        </tr>
-                    {% endif %}
-                </tbody>
-            </table>
-            
+            <div class="footer_texts">
+                <form action="{% url 'footer_update' %}" class="common_form">
+                    {% csrf_token %}
+                    {% for text in texts %}
+                    <div class="b_input">
+                        <label for="Copy">Copyright Texts</label>
+                        <textarea name="copyright" id="Copy" class="textArea bg-transparent border-light">{{text.footer_texts}}</textarea>
+                    </div>
+                    {% endfor %}
+                    <button type="submit" class="submitBtn">Update</button>
+                </form>
+            </div>
         </div>
     </div>
 {% endblock body %}

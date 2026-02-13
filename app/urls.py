@@ -33,6 +33,7 @@ urlpatterns = [
     path('add_skills/', views.add_skills, name='add_skills'),
     path('update_skill_title/', views.update_skill_title, name='update_skill_title'),
     path('<int:pk>/delete_skill/', views.delete_skill, name='delete_skill'),
+    path('footer_update/', views.footer_update, name='footer_update'),
 ]
 
 if settings.DEBUG:
