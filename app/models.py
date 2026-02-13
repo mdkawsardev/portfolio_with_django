@@ -2,7 +2,7 @@ from django.db import models
 from datetime import datetime
 # Create your models here.
 class BannerImage(models.Model):
-    image = models.ImageField(default='default.png', blank=True, upload_to='media')
+    image = models.ImageField(default='media/default.png', blank=True, upload_to='media')
 
 class SelfTag(models.Model):
     self_tags = models.CharField(max_length=100)
