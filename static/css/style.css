@@ -2624,6 +2624,8 @@ body {
 /* Footer */
 
 /*                                      !navbar page                                  */
+/* .dash_parent {
+}
 .dash_container {
     display: flex;
     justify-content: space-between;
@@ -2632,6 +2634,13 @@ body {
     width: 350px;
     min-height: 100vh;
     background: var(--heading);
+} */
+.dashboard_navbar {
+    width: 350px;
+    background: var(--heading);
+}
+.dash_container {
+    width: 70%;
 }
 .dashboard_navbar ul {
 }
