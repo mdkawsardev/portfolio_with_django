@@ -39,10 +39,12 @@
                 <div class="banner_form mt-5">
                     <form class="common_form" action="{% url 'update_skill_title' %}" method="post">
                         {% csrf_token %}
+                        {% for title in skill_title %}
                         <div class="b_input">
                             <label for="skill">Skill Title</label>
-                            <input type="text" id="skill" name="skill_title">
+                            <input type="text" id="skill" name="skill_title" value="{{title.title}}">
                         </div>
+                        {% endfor %}
                         <button type="submit" class="submitBtn mb-lg-5">Update</button>
                     </form>
                     <form class="common_form" action="{% url 'add_skills' %}" method="post">

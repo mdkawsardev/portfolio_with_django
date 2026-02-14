@@ -129,7 +129,8 @@ def skill(request):
         return redirect('/')
     else:
         context = {
-            'all_data': SkillSection.objects.all()
+            'all_data': SkillSection.objects.all(),
+            'skill_title': SkillTitle.objects.all()
         }
         return render(request, 'dashboard/skill.html', context)
 
