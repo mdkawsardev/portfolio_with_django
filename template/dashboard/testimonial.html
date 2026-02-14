@@ -9,7 +9,8 @@
 </div>
 {% endfor %}
 {% endif %} 
-<div class="dash_container">
+<div class="d_parent d-flex">
+
     <div class="dashboard_navbar">
         <div class="dash_title">
             <h1 class="mb-0">Dashboard</h1>
@@ -41,52 +42,54 @@
             <a href="{% url 'logout' %}" class="link_color">Logout</a>
         </div>
     </div>
-    <div class="d_content d-flex">
-        <div class="container">
-            <h2>Testimonial Details</h2>
-            <form class="common_form mt-5" action="{% url 'testimonial'%}" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="b_input">
-                    <label for="Name">Client's Name:</label>
-                    <input type="text" id="Name" name="name" required>
-                </div>
-                <div class="b_input">
-                    <label for="t_name">Tag Name:</label>
-                    <input type="text" id="t_name" name="t_name" required>
-                </div>
-                <div class="b_input">
-                    <label for="com">Comments:</label>
-                    <textarea name="comments" class="form-control bg-transparent text-light" id="com"
-                        required></textarea>
-                </div>
-                <div class="b_input">
-                    <label for="c_im">Client's image</label>
-                    <input type="file" name="c_im" id="c_im" required>
-                </div>
-                <div class="contactBtn">
-                    <button type="submit" class="submitBtn">Add</button>
-                </div>
-            </form>
-        </div>
-        <div class="client_table mt-5 pe-5">
-            <table class="client_table">
-                <tr>
-                    <th>Client Name:</th>
-                    <th>Operation</th>
-                </tr>
-                {% if information %}
-                    {% for info in information %}
-                        <tr>
-                            <td><a href="#">{{info.client_name}}</a></td>
-                            <td><a href="{% url 'delete_review' info.id %}" class="text-decoration-none link_color">Remove</a></td>
-                        </tr>
-                    {% endfor %}
-                {% else %}
+    <div class="dash_container">
+        <div class="d_content d-flex">
+            <div class="container">
+                <h2>Testimonial Details</h2>
+                <form class="common_form mt-5" action="{% url 'testimonial'%}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="b_input">
+                        <label for="Name">Client's Name:</label>
+                        <input type="text" id="Name" name="name" required>
+                    </div>
+                    <div class="b_input">
+                        <label for="t_name">Tag Name:</label>
+                        <input type="text" id="t_name" name="t_name" required>
+                    </div>
+                    <div class="b_input">
+                        <label for="com">Comments:</label>
+                        <textarea name="comments" class="form-control bg-transparent text-light" id="com"
+                            required></textarea>
+                    </div>
+                    <div class="b_input">
+                        <label for="c_im">Client's image</label>
+                        <input type="file" name="c_im" id="c_im" required>
+                    </div>
+                    <div class="contactBtn">
+                        <button type="submit" class="submitBtn">Add</button>
+                    </div>
+                </form>
+            </div>
+            <div class="client_table mt-5 pe-5">
+                <table class="client_table">
                     <tr>
-                        <td>No Reviews</td>
+                        <th>Client Name:</th>
+                        <th>Operation</th>
                     </tr>
-                {% endif %}
-            </table>
+                    {% if information %}
+                        {% for info in information %}
+                            <tr>
+                                <td><a href="#">{{info.client_name}}</a></td>
+                                <td><a href="{% url 'delete_review' info.id %}" class="text-decoration-none link_color">Remove</a></td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td>No Reviews</td>
+                        </tr>
+                    {% endif %}
+                </table>
+            </div>
         </div>
     </div>
 </div>
