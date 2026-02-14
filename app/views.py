@@ -140,7 +140,8 @@ def service(request):
         return redirect('/')
     else:
         context = {
-            'all_data': ServiceSection.objects.all()
+            'all_data': ServiceSection.objects.all(),
+            'service_title': ServiceTitle.objects.all()
         }
         return render(request, 'dashboard/service.html', context)
 

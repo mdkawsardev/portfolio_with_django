@@ -40,10 +40,12 @@
                 <div class="banner_form mt-5">
                     <form class="common_form" action="{% url 'add_services_title' %}" method="post">
                         {% csrf_token %}
+                        {% for title in service_title %}
                         <div class="b_input">
                             <label for="service">Service Title</label>
-                            <input type="text" id="service" name="s_title">
+                            <input type="text" id="service" name="s_title" value="{{title.title}}">
                         </div>
+                        {% endfor %}
                         <button type="submit" name="" class="submitBtn mb-lg-5">Update</button>
                     </form>
                     <form class="common_form" action="{% url 'add_services' %}" method="post">
