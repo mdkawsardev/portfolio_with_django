@@ -151,7 +151,8 @@ def portfolio(request):
         return redirect('/')
     else:
         context = {
-            'all_data': PortfolioSection.objects.all()
+            'all_data': PortfolioSection.objects.all(),
+            'portfolio_title': PortfolioTitle.objects.all()
         }
         return render(request, 'dashboard/portfolio.html', context)
 

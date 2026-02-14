@@ -39,10 +39,12 @@
                 <div class="banner_form mt-5">
                     <form class="common_form" action="{% url 'update_portfolio_title' %}" method="post">
                         {% csrf_token %}
+                        {% for title in portfolio_title %}
                         <div class="b_input">
                             <label for="portfolio">Portfolio Title</label>
-                            <input type="text" id="portfolio" name="portfolio_title">
+                            <input type="text" id="portfolio" name="portfolio_title" value="{{title.title}}">
                         </div>
+                        {% endfor %}
                         <button type="submit" class="submitBtn mb-lg-5">Update</button>
                     </form>
                     <form class="common_form" action="{% url 'insert_data' %}" method="post" enctype="multipart/form-data">
