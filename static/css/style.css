@@ -2635,12 +2635,15 @@ body {
     min-height: 100vh;
     background: var(--heading);
 } */
+
 .dashboard_navbar {
     width: 350px;
     background: var(--heading);
 }
 .dash_container {
     width: 70%;
+    height: 100%;
+    overflow-y: scroll;
 }
 .dashboard_navbar ul {
 }
