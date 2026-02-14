@@ -9,28 +9,29 @@
 </div>
 {% endfor %}
 {% endif %} 
-    <div class="dash_container">
-        <div class="dashboard_navbar">
-            <div class="dash_title">
-                <h1 class="mb-0">Dashboard</h1>
-            </div>
-            <h5 class="website"><a href="{% url "home" %}" target="_blank">Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a></h5>
-            <ul class="p-0">
-                <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'navbar' %}">Navbar</a></li>
-                <li class="text-center list-unstyled"><a class="text-decoration-none d_link d_active" href="{% url 'banner' %}">Banner</a></li>
-                <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'about' %}">About</a></li>
-                <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'skill' %}">Skills</a></li>
-                <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'service' %}">Services</a></li>
-                <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'portfolio' %}">Portfolio</a></li>
-                <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'testimonial' %}">Testimonial</a>
-                </li>
-                <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'contact' %}">Contact</a></li>
-                <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'footer' %}">Footer</a></li>
-            </ul>
-            <div class="text-center">
-                <a href="{% url 'logout' %}" class="link_color">Logout</a>
-            </div>
+<div class="d_parent d-flex">
+    <div class="dashboard_navbar">
+        <div class="dash_title">
+            <h1 class="mb-0">Dashboard</h1>
         </div>
+        <h5 class="website"><a href="{% url "home" %}" target="_blank">Website <i class="fa-solid fa-arrow-up-right-from-square"></i></a></h5>
+        <ul class="p-0">
+            <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'navbar' %}">Navbar</a></li>
+            <li class="text-center list-unstyled"><a class="text-decoration-none d_link d_active" href="{% url 'banner' %}">Banner</a></li>
+            <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'about' %}">About</a></li>
+            <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'skill' %}">Skills</a></li>
+            <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'service' %}">Services</a></li>
+            <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'portfolio' %}">Portfolio</a></li>
+            <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'testimonial' %}">Testimonial</a>
+            </li>
+            <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'contact' %}">Contact</a></li>
+            <li class="text-center list-unstyled"><a class="text-decoration-none d_link" href="{% url 'footer' %}">Footer</a></li>
+        </ul>
+        <div class="text-center">
+            <a href="{% url 'logout' %}" class="link_color">Logout</a>
+        </div>
+    </div>
+    <div class="dash_container">
         <div class="d_content">
             <div class="container">
                 <h2>Banner Details</h2>
@@ -89,4 +90,5 @@
             </div>
         </div>
     </div>
+</div>
 {% endblock body %}
