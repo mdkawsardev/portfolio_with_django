@@ -36,7 +36,7 @@
         <div class="d_content d-flex">
             <div class="container">
                 <h2>Portfolio Details</h2>
-                <div class="banner_form mt-5 ">
+                <div class="banner_form mt-5">
                     <form class="common_form" action="{% url 'update_portfolio_title' %}" method="post">
                         {% csrf_token %}
                         {% for title in portfolio_title %}
