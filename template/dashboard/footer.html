@@ -35,7 +35,7 @@
         <div class="d_content d-flex">
             <div class="container">
                 <h2>Footer Details</h2>
-                <table>
+                <table class="mb-5">
                     <tbody>
                         <tr>
                             <th>Numbers</th>
@@ -43,13 +43,13 @@
                         {% for number in numbers %}
                         <tr>
                             <td>
-                                <a href="#" class="">{{number.number}}</a>
+                                <a href="{% url 'footer_update' number.id %}" class="">{{number.number}}</a>
                             </td>
                         </tr>
                         {% endfor %}
                     </tbody>
                 </table>
-                <table>
+                <table class="mb-5">
                     <tbody>
                         <tr>
                             <th>Email</th>
@@ -57,38 +57,33 @@
                         {% for email in emails %}
                         <tr>
                             <td>
-                                <a href="#" class="">{{email.email}}</a>
+                                <a href="{% url 'footer_update' email.id %}" class="">{{email.email}}</a>
                             </td>
                         </tr>
                         {% endfor %}
                     </tbody>
                 </table>
-                <form action="{% url 'footer_update' %}" class="common_form mt-5" method="post">
-                    {% for number in numbers %}
-                    <div class="phone b_input">
-                        <label for="phone">Phones</label>
-                        <input class="mb-3" type="text" id="phone" name="phone1" value="{{number.number}}">
-                    </div>
-                    {% endfor %}
-                    {% for email in emails %}
-                    <div class="b_input email">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" value="{{email.email}}">
-                    </div>
-                    {% endfor %}
-                    {% for social in socials %}
-                    <div class="b_input socials">
-                        <div>
-                            <div><i class="{{social.icon}}"></i></div><input class="mb-3" type="text" name="icon" value="{{social.icon}}">
-                            <input type="text" name="link" value="{{social.link}}">
-                        </div>
-                    </div>
-                    {% endfor %}
-                    <button type="submit" class="submitBtn">Update</button>
-                </form>
+                <table class="mb-5">
+                    <tbody>
+                        <tr>
+                            <th>Icon</th>
+                            <th>Icon Name</th>
+                            <th>Link</th>
+                        </tr>
+                        {% for social in socials %}
+                        <tr>
+                            <td><i class="{{social.icon}}"></i></td>
+                            <td>{{social.icon}}</td>
+                            <td>
+                                <a href="{% url 'footer_update' social.id %}" class="">{{social.link}}</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
             <div class="footer_texts">
-                <form action="{% url 'footer_update' %}" class="common_form" method="post">
+                <form action="{% url 'footer_update2' %}" class="common_form" method="post">
                     {% csrf_token %}
                     {% for text in texts %}
                     <div class="b_input">

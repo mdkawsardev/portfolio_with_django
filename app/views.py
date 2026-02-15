@@ -201,7 +201,7 @@ def footer(request):
         }
         return render(request, 'dashboard/footer.html', context)
 
-def footer_update(request):
+def footer_update2(request):
     if request.method == "POST":
         copyright = request.POST['copyright']
         FooterText.objects.update(
@@ -210,6 +210,9 @@ def footer_update(request):
         messages.success(request, "Footer texts are updated!")
     return redirect('/footer')
     
+def footer_update(request, pk):
+    pass
+
 def loginuser(request):
     if request.user.is_authenticated:
         return redirect('/navbar')
