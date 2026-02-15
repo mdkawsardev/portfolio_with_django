@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Dashboard | Update{% endblock title %}
+{% block body %}
+    <div class="container">
+        <form action="" class="common_form mt-5" method="post">
+            {% csrf_token %}
+            {% for number in numbers %}
+            <div class="b_input">
+                <label for="new_number">Number</label>
+                <input type="text" id="new_number" name="new_number" value="{{number.number}}">
+            </div>
+            {% endfor %}
+            {% for email in emails %}
+            <div class="b_input">
+                <label for="new_email">Email</label>
+                <input type="email" id="new_email" name="new_email" value="{{email.email}}">
+            </div>
+            {% endfor %}
+            {% for social in socials %}
+            <div class="b_input">
+                <label for="new_icon_name">Icon Name</label>
+                <input type="email" id="new_icon_name" name="new_icon_name" value="{{social.icon}}">
+            </div>
+            <div class="b_input">
+                <label for="new_link">Link</label>
+                <input type="email" id="new_link" name="new_link" value="{{social.link}}">
+            </div>
+            {% endfor %}
+            <button type="submit" class="submitBtn">Update</button>
+        </form>
+    </div>
+{% endblock body %}

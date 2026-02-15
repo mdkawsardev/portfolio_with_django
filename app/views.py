@@ -211,7 +211,12 @@ def footer_update2(request):
     return redirect('/footer')
     
 def footer_update(request, pk):
-    pass
+    context = {
+        'numbers': ContactNumber.objects.filter(id=pk).all(),
+        'emails': ContactEmail.objects.filter(id=pk).all(),
+        'socials': SocialMedia.objects.filter(id=pk).all()
+    }
+    return render(request, 'footer_update.html', context)
 
 def loginuser(request):
     if request.user.is_authenticated:
