@@ -35,6 +35,34 @@
         <div class="d_content d-flex">
             <div class="container">
                 <h2>Footer Details</h2>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Numbers</th>
+                        </tr>
+                        {% for number in numbers %}
+                        <tr>
+                            <td>
+                                <a href="#" class="">{{number.number}}</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Email</th>
+                        </tr>
+                        {% for email in emails %}
+                        <tr>
+                            <td>
+                                <a href="#" class="">{{email.email}}</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
                 <form action="{% url 'footer_update' %}" class="common_form mt-5" method="post">
                     {% for number in numbers %}
                     <div class="phone b_input">
