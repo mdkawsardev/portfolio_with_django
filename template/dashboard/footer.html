@@ -43,7 +43,7 @@
                         {% for number in numbers %}
                         <tr>
                             <td>
-                                <a href="{% url 'footer_update' number.id %}" class="">{{number.number}}</a>
+                                <a href="{% url 'footer_update' number.number %}" class="">{{number.number}}</a>
                             </td>
                         </tr>
                         {% endfor %}
@@ -57,7 +57,7 @@
                         {% for email in emails %}
                         <tr>
                             <td>
-                                <a href="{% url 'footer_update' email.id %}" class="">{{email.email}}</a>
+                                <a href="{% url 'footer_update' email.email %}" class="">{{email.email}}</a>
                             </td>
                         </tr>
                         {% endfor %}
@@ -75,7 +75,7 @@
                             <td><i class="{{social.icon}}"></i></td>
                             <td>{{social.icon}}</td>
                             <td>
-                                <a href="{% url 'footer_update' social.id %}" class="">{{social.link}}</a>
+                                <a href="{% url 'footer_update' social.icon %}" class="">{{social.link}}</a>
                             </td>
                         </tr>
                         {% endfor %}

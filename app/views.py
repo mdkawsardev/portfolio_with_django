@@ -212,9 +212,9 @@ def footer_update2(request):
     
 def footer_update(request, pk):
     context = {
-        'numbers': ContactNumber.objects.filter(id=pk).all(),
-        'emails': ContactEmail.objects.filter(id=pk).all(),
-        'socials': SocialMedia.objects.filter(id=pk).all()
+        'numbers': ContactNumber.objects.filter(number=pk),
+        'emails': ContactEmail.objects.filter(email=pk),
+        'socials': SocialMedia.objects.filter(icon=pk).all()
     }
     return render(request, 'footer_update.html', context)
 

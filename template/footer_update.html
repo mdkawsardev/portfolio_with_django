@@ -10,12 +10,16 @@
                 <input type="text" id="new_number" name="new_number" value="{{number.number}}">
             </div>
             {% endfor %}
-            {% for email in emails %}
-            <div class="b_input">
-                <label for="new_email">Email</label>
-                <input type="email" id="new_email" name="new_email" value="{{email.email}}">
-            </div>
-            {% endfor %}
+
+            {% if emails %}
+                {% for email in emails %}
+                    <div class="b_input">
+                        <label for="new_email">Email</label>
+                        <input type="email" id="new_email" name="new_email" value="{{email.email}}">
+                    </div>
+                {% endfor %}
+            {% endif %}
+
             {% for social in socials %}
             <div class="b_input">
                 <label for="new_icon_name">Icon Name</label>
