@@ -2694,7 +2694,7 @@ body {
     margin-bottom: 20px;
     color: var(--white);
 }
-.b_input input {
+.b_input input, .b_input textarea {
     width: 100%;
     padding: 15px 10px;
     border: 1px solid var(--heading);
@@ -2704,6 +2704,7 @@ body {
     box-shadow: 0 0 10px #00070f;
     border-radius: 1rem;
 }
+
 .banner_preview {
     width: 600px;
     color: var(--white);
