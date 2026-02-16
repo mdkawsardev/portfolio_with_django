@@ -218,6 +218,32 @@ def footer_update(request, pk):
     }
     return render(request, 'footer_update.html', context)
 
+def number_update(request, pk):
+    get_data = ContactNumber.objects.filter(id=pk)
+    if request.method == "POST":
+        new_number = request.POST['new_number']
+        get_data.update(number=new_number)
+        messages.success(request, "Number has been updated!")
+    return redirect('/footer')
+
+def email_update(request, pk):
+    get_data = ContactEmail.objects.filter(id=pk)
+    if request.method == "POST":
+        new_email = request.POST['new_email']
+        get_data.update(email=new_email)
+        messages.success(request, "Email has been updated!")
+    return redirect('/footer')
+
+def social_update(request, pk):
+    get_data = SocialMedia.objects.filter(id=pk)
+    if request.method == "POST":
+        new_icon_name = request.POST['new_icon_name']
+        new_link = request.POST['new_link']
+        get_data.update(icon=new_icon_name, link=new_link)
+        messages.success(request, "External link has been updated!")
+    return redirect('/footer')
+
+
 def loginuser(request):
     if request.user.is_authenticated:
         return redirect('/navbar')

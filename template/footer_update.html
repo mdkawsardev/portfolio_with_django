@@ -2,35 +2,45 @@
 {% block title %}Dashboard | Update{% endblock title %}
 {% block body %}
     <div class="container">
-        <form action="" class="common_form mt-5" method="post">
-            {% csrf_token %}
+        <div class="d-flex justify-content-center">
             {% for number in numbers %}
+        <form action="{% url 'number_update' number.id %}" class="common_form mt-5" method="post">
+            {% csrf_token %}
             <div class="b_input">
                 <label for="new_number">Number</label>
                 <input type="text" id="new_number" name="new_number" value="{{number.number}}">
             </div>
-            {% endfor %}
+            <button type="submit" class="submitBtn">Update</button>
+        </form>
+        {% endfor %}
 
             {% if emails %}
-                {% for email in emails %}
+            {% for email in emails %}
+                <form action="{% url 'email_update' email.id %}" method="post" class="common_form mt-5">
+                    {% csrf_token %}
                     <div class="b_input">
                         <label for="new_email">Email</label>
                         <input type="email" id="new_email" name="new_email" value="{{email.email}}">
                     </div>
+                    <button type="submit" class="submitBtn">Update</button>
+                </form>
                 {% endfor %}
             {% endif %}
 
-            {% for social in socials %}
+        {% for social in socials %}
+        <form action="{% url 'social_update' social.id %}" method="post" class="common_form mt-5">
+            {% csrf_token %}
             <div class="b_input">
                 <label for="new_icon_name">Icon Name</label>
-                <input type="email" id="new_icon_name" name="new_icon_name" value="{{social.icon}}">
+                <input type="text" id="new_icon_name" name="new_icon_name" value="{{social.icon}}">
             </div>
             <div class="b_input">
                 <label for="new_link">Link</label>
-                <input type="email" id="new_link" name="new_link" value="{{social.link}}">
+                <input type="text" id="new_link" name="new_link" value="{{social.link}}">
             </div>
-            {% endfor %}
             <button type="submit" class="submitBtn">Update</button>
         </form>
+        {% endfor %}
+        </div>
     </div>
 {% endblock body %}
