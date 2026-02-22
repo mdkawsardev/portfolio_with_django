@@ -168,11 +168,11 @@
             <h2 class="heading">I'm a <span id="typewriter-text"></span></h2>
         </div>
     </section>
-    <section class="about section common_section" id="about">
+    <section class="about section common_section" id="about" >
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <div class="common_title">
+                    <div class="common_title" data-aos="fade-up">
                         {% if Abouts %}
                             {% for about in Abouts %}
                                 <h2 class="mb-lg-0">{{about.title}}</h2>
@@ -181,9 +181,9 @@
                     </div>
                 </div>
             </div>
-            <div class="row about_text">
+            <div class="row about_text" data-aos="fade-up">
                 <div class="col-lg-4 d-block d-lg-none p-0">
-                    <div class="right">
+                    <div class="right" >
                         <div class="profile">
                             {% if Abouts %}
                                 {% for About in Abouts %}
@@ -245,7 +245,7 @@
                 </div>
             </div>
             <div class="row counter_points">
-                <div class="col-lg-4">
+                <div class="col-lg-4" data-aos="fade-up">
                     {% if Abouts %}
                         {% for About in Abouts %}
                             <div class="point text-center counter1">
@@ -255,7 +255,7 @@
                         {% endfor %}
                     {% endif %}
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4" data-aos="fade-up">
                     {% if Abouts %}
                         {% for About in Abouts %}
                             <div class="point text-center counter2">
@@ -265,7 +265,7 @@
                         {% endfor %}
                     {% endif %}
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4" data-aos="fade-up">
                     {% if Abouts %}
                         {% for About in Abouts %}
                             <div class="point text-center counter3">
@@ -282,7 +282,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <div class="common_title">
+                    <div class="common_title" data-aos="fade-up">
                         {% if Skill_title %}
                         {% for s_title in Skill_title %}
                         <h2 class="mb-lg-0">{{s_title.title}}</h2>
@@ -296,7 +296,7 @@
                     <div class="skills" id="skills">
                         {% if Skills %}
                             {% for skill in Skills %}
-                                <div class="skill">
+                                <div class="skill" data-aos="fade-up">
                                     <span class="tag">{{skill.range_text}}</span>
                                     <div class="skill-bar">
                                     <div class="skill-level" data-percent="{{skill.range_percentage}}">
@@ -317,7 +317,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <div class="common_title">
+                    <div class="common_title" data-aos="fade-up">
                         {% if Service_title %}
                         {% for s_title in Service_title %}
                         <h2 class="mb-lg-0">{{s_title.title}}</h2>
@@ -330,7 +330,7 @@
                 {% if Services %}
                     {% for Service in Services %}
                         <div class="col-xl-4 col-sm-6">
-                            <div class="single_service">
+                            <div class="single_service" data-aos="fade-up">
                                 <div class="details">
                                     <span class="icon"><i class="{{Service.service_icon}}"></i></span>
                                     <h3>{{Service.service_name}}</h3>
@@ -347,7 +347,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <div class="common_title">
+                    <div class="common_title" data-aos="fade-up">
                         {% if Porfolio_title %}
                             {% for p_title in Porfolio_title %}
                                 <h2 class="mb-lg-0">{{p_title.title}}</h2>
@@ -359,7 +359,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="mixItUp">
-                        <div class="itemBtn">
+                        <div class="itemBtn" data-aos="fade-up">
                             <ul>
                                 <li class="list active" data-filter="all">All</li>
                                 <li class="list" data-filter="frontend">Front-End</li>
@@ -368,7 +368,7 @@
                                 <li class="list" data-filter="react">React</li>
                             </ul>
                         </div>
-                        <div class="itemBox">
+                        <div class="itemBox" data-aos="fade-up">
                             {% if Porfolios %}
                                 {% for Porfolio in Porfolios %}
                                     <div class="items" data-item="{{Porfolio.filter_keyword}}">
@@ -388,7 +388,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <div class="common_title">
+                    <div class="common_title" data-aos="fade-up">
                         {% if Client_title %}
                             {% for c_title in Client_title %}
                                 <h2 class="mb-lg-0">{{c_title.title}}</h2>
@@ -403,7 +403,7 @@
                         <ul class="list ps-0 m-0 swiper-wrapper">
                             {% if ClientReviews %}
                                 {% for ClientReview in ClientReviews %}
-                                    <li class="item swiper-slide">
+                                    <li class="item swiper-slide" data-aos="fade-up">
                                         <span class="quate"><i class="fa-solid fa-quote-left"></i></span>
                                         <div class="client">
                                             <div class="client_pic"><img src="{{ClientReview.client_photo.url}}"
@@ -429,7 +429,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <div class="common_title">
+                    <div class="common_title" data-aos="fade-up">
                         {% if Contact_title %}
                             {% for con_title in Contact_title %}
                                 <h2 class="mb-lg-0">{{con_title.title}}</h2>
@@ -438,7 +438,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row contact_parent overflow-hidden">
+            <div class="row contact_parent overflow-hidden" data-aos="fade-up">
                 <div class="col-lg-5">
                     <div class="form">
                         {% if Contact_title %}

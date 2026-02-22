@@ -401,3 +401,4 @@ showHidePassword(loginInput, loginEyes, openEye1, closeEye1)
 showHidePassword(newInput, newEyes, openEye2, closeEye2)
 showHidePassword(conInput, conEyes, openEye3, closeEye3)
 // Password showHide
+AOS.init();
