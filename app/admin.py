@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django import forms
-from .models import Contact, BannerImage, SkillSection, AboutSection, ServiceSection, PortfolioSection, ClientSection, SocialMedia, ContactNumber, ContactEmail, FooterText, SkillTitle, ServiceTitle, PortfolioTitle, ClientTitle, ContactTitle, SelfTag
+from .models import *
 # Register your models here.
 
 admin.site.register(BannerImage)
